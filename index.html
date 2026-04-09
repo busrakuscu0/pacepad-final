@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Path Conduct</title>
+    <title>PacePad</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,27 +13,52 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <header>
-      <nav class="navbar">
-        <a href="#" class="nav_logo">Path Conduct</a>
-        <ul class="nav-list">
-          <li class="nav-list-item">
-            <img src="./assets/icons/core-icon.svg" alt="Core Icon" />
-            <a href="#">CORE</a>
-          </li>
-          <li class="nav-list-item">
-            <img src="./assets/icons/mission-icon.svg" alt="Mission Icon" />
-            <a href="./missions.html">MISSONS</a>
-          </li>
-          <li class="nav-list-item">
-            <img src="./assets/icons/strategy-icon.svg" alt="Strategy Icon" />
-            <a href="./strategies.html">STRATEGIES</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main></main>
-    <footer></footer>
+    <div class="body-flex">
+      <header>
+        <nav class="nav">
+          <a href="#" class="nav__logo"
+            ><img src="./assets/pacepad-logo.svg" alt="Pacepad Logo" />
+          </a>
+          <ul class="nav__list">
+            <li class="nav__list-item">
+              <img src="./assets/icons/core-icon.svg" alt="Core Icon" />
+              <a href="#">CORE</a>
+            </li>
+            <li class="nav__list-item">
+              <img src="./assets/icons/mission-icon.svg" alt="Mission Icon" />
+              <a href="./missions.html">MISSONS</a>
+            </li>
+            <li class="nav__list-item">
+              <img src="./assets/icons/strategy-icon.svg" alt="Strategy Icon" />
+              <a href="./strategies.html">STRATEGIES</a>
+            </li>
+          </ul>
+          <a href="addmission.html" class="btn btn--primary"
+            >INITIATE MISSION</a
+          >
+        </nav>
+      </header>
+
+      <main>
+        <div class="input-container">
+          <input
+            type="text"
+            id="addMissionInput"
+            placeholder="Identify the target..."
+            class="mission-input"
+          />
+          <a href="addmission.html" class="btn btn--secondary">START MISSION</a>
+        </div>
+      </main>
+    </div>
+    <footer class="footer">
+      <a href="#">CORE</a>
+      <span>© 2026, Pacepad. All rights reserved.</span>
+      <span class="footer-right">
+        <a href="mailto:busra.kuscu@code2career.eu">Report</a>
+        <p>• LOCAL DATA</p>
+      </span>
+    </footer>
     <script src="./script.js"></script>
   </body>
 </html>
