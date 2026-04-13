@@ -16,7 +16,7 @@
     <div class="body-flex">
       <header>
         <nav class="nav">
-          <a href="#" class="nav__logo"
+          <a href="index.html" class="nav__logo"
             ><img src="./assets/pacepad-logo.svg" alt="Pacepad Logo" />
           </a>
           <ul class="nav__list">
@@ -26,7 +26,7 @@
             </li>
             <li class="nav__list-item">
               <img src="./assets/icons/mission-icon.svg" alt="Mission Icon" />
-              <a href="missions.html">MISSONS</a>
+              <a href="missions.html">MISSIONS</a>
             </li>
             <li class="nav__list-item">
               <img src="./assets/icons/strategy-icon.svg" alt="Strategy Icon" />
@@ -35,61 +35,86 @@
               >
             </li>
           </ul>
-          <a href="addmission.html" class="btn btn--primary"
+          <a href="startmission.html" class="btn btn--primary"
             >INITIATE MISSION</a
           >
         </nav>
       </header>
-      <main class="main__cont">
+      <main class="flex-column main__container">
         <h1 class="main__title">STRATEGIC SELECTION</h1>
-        <div class="strategic-card__container">
-          <div class="strategic-card">
+
+        <div class="flex-row strategy__container">
+          <div class="flex-column strategy-card">
             <img
+              class="card-icon"
               src="./assets/icons/prioritizer-icon.svg"
               alt="The Prioritizer Icon"
             />
-            <h2>The Prioritizer</h2>
+            <h2>THE PRIORITIZER</h2>
             <p class="card__text">
               Filter your tasks to separate daily busywork from what actually
               moves the needle. Choose this if you feel overwhelmed and need to
               focus on true priorities.
             </p>
+            <div class="card-badge hidden">CURRENT SELECTION</div>
+            <div class="flex-row card-status">
+              <span class="status-dot"></span>
+              <span class="status-text">ALTERNATIVE</span>
+            </div>
           </div>
-          <div class="strategic-card">
+          <div class="flex-column strategy-card">
             <img
+              class="card-icon"
               src="./assets/icons/deep-focus-icon.svg"
               alt="Deep Focus Sprints Icon"
             />
-            <h2>Deep Focus Sprints</h2>
+            <h2>DEEP FOCUS SPRINTS</h2>
             <p class="card__text">
               Break your work into intense 25-minute intervals followed by short
               breaks. Choose this if you easily get distracted and want to build
               steady momentum.
             </p>
+            <div class="card-badge hidden">CURRENT SELECTION</div>
+            <div class="flex-row card-status">
+              <span class="status-dot"></span>
+              <span class="status-text">ALTERNATIVE</span>
+            </div>
           </div>
-          <div class="strategic-card">
+          <div class="flex-column strategy-card">
             <img
+              class="card-icon"
               src="./assets/icons/quick-wins-icon.svg"
               alt="Quick Wins Icon"
             />
-            <h2>Quick Wins</h2>
+            <h2>QUICK WINS</h2>
             <p class="card__text">
               Instantly execute any new task that takes less than two minutes to
               complete. Choose this if you feel stuck and need a fast way to
               clear your mental RAM.
             </p>
+            <div class="card-badge hidden">CURRENT SELECTION</div>
+            <div class="flex-row card-status">
+              <span class="status-dot"></span>
+              <span class="status-text">ALTERNATIVE</span>
+            </div>
           </div>
-          <div class="strategic-card">
+          <div class="flex-column strategy-card">
             <img
+              class="card-icon"
               src="./assets/icons/tunnel-vision-icon.svg"
               alt="Tunnel Vision Icon"
             />
-            <h2>Tunnel Vision</h2>
+            <h2>TUNNEL VISION</h2>
             <p class="card__text">
               Lock in specific, dedicated time blocks for single tasks. Choose
               this if you are constantly multitasking and need pure,
               uninterrupted execution.
             </p>
+            <div class="card-badge hidden">CURRENT SELECTION</div>
+            <div class="flex-row card-status">
+              <span class="status-dot"></span>
+              <span class="status-text">ALTERNATIVE</span>
+            </div>
           </div>
         </div>
       </main>
