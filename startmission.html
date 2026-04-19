@@ -38,197 +38,193 @@
           >
         </nav>
       </header>
-      <main class="flex-column main__container justify-space-between">
-        <h1>Architect Your Mission</h1>
+      <main class="flex-column main__container">
+        <h1 class="main__title">ARCHITECT YOUR MISSION</h1>
 
-        <form
-          method="get"
-          class="flex-column form__container"
-          action="missions.html"
-          id="formElement"
-        >
-          <div class="flex-row form__header">
-            <fieldset>
-              <legend class="form__legend">MASTER OBJECTIVE</legend>
-              <input
-                class="input-field"
-                type="text"
-                name="missionName"
-                placeholder="Identify your main mission"
-              />
-            </fieldset>
-            <div class="flex-row focus-toggle">
-              <span class="toggle__label">FOCUS MODE</span>
-              <label class="toggle__switch">
-                <input type="checkbox" id="focusToggle" />
-                <span class="switch__slider"></span>
+        <form method="get" class="flex-column form__container" id="formElement">
+          <fieldset class="flex-row form__header">
+            <legend class="form__legend">MASTER OBJECTIVE</legend>
+            <input
+              class="input-field"
+              type="text"
+              placeholder="Identify main title for your mission"
+              id="missionMainTitle"
+              aria-describedby="titleError"
+            />
+
+            <div class="flex-row toggle__container">
+              <span class="toggle__label" id="toggleLabel">FOCUS MODE</span>
+              <button
+                type="button"
+                id="focusToggleButton"
+                class="toggle-btn"
+                role="switch"
+                aria-checked="false"
+                aria-label="Toggle Focus Mode"
+                aria-labelledby="toggleLabel"
+              >
+                <span class="toggle-slider"></span>
+              </button>
+              <span class="toggle__status" id="toggleStatus">ON</span>
+            </div>
+          </fieldset>
+          <p class="form__error" id="titleError"></p>
+
+          <fieldset class="mt-60">
+            <legend class="form__legend">MISSION TYPE</legend>
+            <div class="mission-types__container">
+              <label class="mission-types__option">
+                <input
+                  type="radio"
+                  name="missionType"
+                  value="deep-work"
+                  class="sr-only"
+                  aria-describedby="missionTypeError"
+                />
+                <span class="flex-column option__content">
+                  <span class="option__title">Deep Work</span>
+                  <span class="option__subtitle">BEAST MODE</span>
+                </span>
               </label>
-              <span class="toggle__status">ON</span>
+
+              <label class="mission-types__option">
+                <input
+                  type="radio"
+                  name="missionType"
+                  value="urgent"
+                  class="sr-only"
+                  aria-describedby="missionTypeError"
+                />
+                <span class="flex-column option__content">
+                  <span class="option__title">Urgent</span>
+                  <span class="option__subtitle">HIGH PRIORITY</span>
+                </span>
+              </label>
+
+              <label class="mission-types__option">
+                <input
+                  type="radio"
+                  name="missionType"
+                  value="routine"
+                  class="sr-only"
+                  aria-describedby="missionTypeError"
+                />
+                <span class="flex-column option__content">
+                  <span class="option__title">Routine</span>
+                  <span class="option__subtitle">MAINTENANCE</span>
+                </span>
+              </label>
+
+              <label class="mission-types__option">
+                <input
+                  type="radio"
+                  name="missionType"
+                  value="quick"
+                  class="sr-only"
+                  aria-describedby="missionTypeError"
+                />
+
+                <span class="flex-column option__content">
+                  <span class="option__title">Quick</span>
+                  <span class="option__subtitle">MOMENTUM</span>
+                </span>
+              </label>
             </div>
-          </div>
+            <p class="form__error" id="missionTypeError"></p>
+          </fieldset>
+          <p class="form__context mt-60">
+            <b>Clarity is the fuel of focus.</b> <br />
+            Break the monolith into atomic steps to reduce cognitive friction
+            and keep your momentum alive.
+          </p>
 
-          <div class="flex-row grid__container">
-            <fieldset>
-              <legend class="form__legend">MISSION TYPE</legend>
-              <div class="mission-types__grid">
-                <label class="mission-types__option">
-                  <input
-                    type="radio"
-                    name="missionType"
-                    value="deep-work"
-                    class="option__input"
-                  />
-                  <span class="flex-column option__content">
-                    <span class="option__title">Deep Work</span>
-                    <span class="option__subtitle">BEAST MODE</span>
-                  </span>
-                </label>
-
-                <label class="mission-types__option">
-                  <input
-                    type="radio"
-                    name="missionType"
-                    value="urgent"
-                    class="option__input"
-                    checked
-                  />
-                  <span class="flex-column option__content">
-                    <span class="option__title">Urgent</span>
-                    <span class="option__subtitle">HIGH PRIORITY</span>
-                  </span>
-                </label>
-
-                <label class="mission-types__option">
-                  <input
-                    type="radio"
-                    name="missionType"
-                    value="routine"
-                    class="option__input"
-                  />
-                  <span class="flex-column option__content">
-                    <span class="option__title">Routine</span>
-                    <span class="option__subtitle">MAINTENANCE</span>
-                  </span>
-                </label>
-
-                <label class="mission-types__option">
-                  <input
-                    type="radio"
-                    name="missionType"
-                    value="routine"
-                    class="option__input"
-                  />
-
-                  <span class="flex-column option__content">
-                    <span class="option__title">Quick</span>
-                    <span class="option__subtitle">MOMENTUM</span>
-                  </span>
-                </label>
-              </div>
-            </fieldset>
-          </div>
-          <fieldset id="fieldsetContainer">
-            <p class="breakdown__text">
-              <b>Clarity is the fuel of focus.</b> <br />
-              Break the monolith into atomic steps to reduce <br />
-              cognitive friction and keep your momentum alive.
-            </p>
+          <fieldset class="mt-60 mb-20" id="fieldsetContainer">
             <div class="flex-row breakdown__header">
-              <legend>ATOMIC BREAKDOWN</legend>
-              <span class="breakdown__subtitle">STAGES 01—02</span>
+              <legend class="form__legend">ATOMIC BREAKDOWN</legend>
+              <span class="form__legend" id="stagesHeader">STAGES 01—02</span>
             </div>
 
-            <div class="flex-column breakdown__list" id="breakdownList">
+            <div class="flex-column breakdown__list" id="stepList">
               <div class="flex-row breakdown__list-item">
                 <span class="list-item__number">01</span>
                 <input
                   type="text"
-                  class="breakdown__input"
+                  class="list-item__input"
                   placeholder="Define an atomic step..."
+                  aria-describedby="atomicStepsError"
                 />
 
-                <div>
+                <div class="flex-row list-item__actions">
                   <button
                     type="button"
-                    class="btn flex-row set-time"
-                    id="setTimeButton"
+                    class="btn flex-row set-time__button"
+                    aria-describedby="atomicStepsError"
                   >
                     <img
                       src="assets/icons/schedule-icon.svg"
                       alt="Schedule Icon"
                     />
-                    <span> SET TIME </span>
+                    <span>SET TIME</span>
                   </button>
+                  <button class="btn delete__button">DELETE</button>
                 </div>
               </div>
 
-              <div class="flex-row breakdown__list-item">
-                <span class="list-item__number">02</span>
-                <input
-                  type="text"
-                  class="breakdown__input"
-                  placeholder="Define an atomic step..."
-                />
-                <div>
-                  <button type="button" class="btn flex-row set-time">
-                    <img
-                      src="assets/icons/schedule-icon.svg"
-                      alt="Schedule Icon"
-                    />
-                    <span> SET TIME </span>
-                  </button>
-                </div>
-              </div>
-              <template id="stepTemplate">
-                <div class="flex-row breakdown__list-item">
-                  <span class="list-item__number">00</span>
-                  <input
-                    type="text"
-                    class="breakdown__input"
-                    placeholder="Define an atomic step..."
-                  />
-                  <div>
-                    <button type="button" class="btn flex-row set-time">
-                      <img
-                        src="assets/icons/schedule-icon.svg"
-                        alt="Schedule Icon"
-                      />
-                      <span> SET TIME </span>
-                    </button>
-                  </div>
-                </div>
-              </template>
-
-              <div class="flex-row breakdown__list-item" id="addStepBtn">
+              <button
+                id="addStepButton"
+                type="button"
+                class="flex-row breakdown__list-item btn add-step__button"
+              >
                 <img src="./assets/icons/add-icon.svg" />
-                <button type="button" class="btn btn__add-step">
-                  ADD ATOMIC STEP
-                </button>
-              </div>
+                ADD ATOMIC STEP
+              </button>
+              <p class="form__error" id="atomicStepsError"></p>
             </div>
           </fieldset>
+          <button type="submit" class="flex-row btn submit__button">
+            <img
+              src="./assets/icons/rocket_launch_24dp_313030_FILL1_wght400_GRAD0_opsz24.svg"
+              alt="Rocket Icon"
+            />
+            INITIATE MISSION
+          </button>
         </form>
-        <div class="flex-row calibration-box hidden" id="calibrationBox">
-          <div class="flex-column time-column" id="columnHour">
-            <span class="col__label">HOUR</span>
-            <button id="btnHourUp" class="nav-btn">⌃</button>
+        <div
+          class="flex-row calibration__container hidden close-box"
+          id="calibrationBox"
+        >
+          <div class="flex-column column__time" id="columnHour">
+            <span class="column__label">HOUR</span>
+            <button class="calibration__button" id="hourUpButton">⌃</button>
 
-            <div id="displayHour" class="val active"></div>
+            <div class="current__value active" id="displayHour"></div>
 
-            <button id="btnHourDown" class="nav-btn">⌄</button>
+            <button class="calibration__button" id="hourDownButton">⌄</button>
           </div>
 
           <div class="time-separator">:</div>
 
-          <div class="flex-column time-column" id="columnMinute">
-            <span class="col__label">MINUTE</span>
-            <button id="btnMinuteUp" class="nav-btn">⌃</button>
+          <div class="flex-column column__time" id="columnMinute">
+            <span class="column__label">MINUTE</span>
+            <button class="calibration__button" id="minuteUpButton">⌃</button>
 
-            <div id="displayMinute" class="val active"></div>
+            <div class="current__value active" id="displayMinute"></div>
 
-            <button id="btnMinuteDown" class="nav-btn">⌄</button>
+            <button class="calibration__button" id="minuteDownButton">⌄</button>
           </div>
-          <div class="btn--set-time" id="timePickerButton">SET TIME</div>
+
+          <button
+            type="button"
+            class="time-picker__button"
+            id="timePickerButton"
+          >
+            SET TIME
+          </button>
+          <div class="error-message hidden close-box" id="errorMessage">
+            <span id="errorText">Please enter a valid time.</span>
+            <button class="close__button">&times;</button>
+          </div>
+          <button class="close__button">&times;</button>
         </div>
       </main>
     </div>
@@ -240,6 +236,25 @@
         <p>• LOCAL DATA</p>
       </span>
     </footer>
+    <template id="stepTemplate">
+      <div class="flex-row breakdown__list-item close-box">
+        <span class="list-item__number">00</span>
+
+        <input
+          type="text"
+          class="list-item__input"
+          placeholder="Define an atomic step..."
+        />
+
+        <div class="flex-row list-item__actions">
+          <button type="button" class="btn flex-row set-time__button">
+            <img src="assets/icons/schedule-icon.svg" alt="Schedule Icon" />
+            <span>SET TIME</span>
+          </button>
+          <button class="btn delete__button">DELETE</button>
+        </div>
+      </div>
+    </template>
     <script src="./missions.js"></script>
   </body>
 </html>
