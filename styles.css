@@ -298,6 +298,12 @@ fieldset {
   font-weight: 800;
 }
 
+.mission-title {
+  text-transform: uppercase;
+}
+
+
+
 
 
 
@@ -573,15 +579,16 @@ fieldset {
 }
 
 .mission-card {
+  gap: 60px;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
   margin-top: 40px;
   border-left: 4px solid #687474b2;
   box-shadow: 0 0 5px rgba(130, 127, 127, 0.138);
   border-radius: 10px;
   padding: 20px;
   width: 100%;
-  max-width: 900px;
+
 }
 
 .mission-card__header {
@@ -591,30 +598,24 @@ fieldset {
   width: 100%;
 }
 
-.progress-ring {
-  position: relative;
+.progress-circular {
   width: 60px;
   height: 60px;
-  display: flex;
+  border-radius: 50%;
+  background: conic-gradient(var(--color-tertiary) var(--percent, 0%), #1a252b 0deg);
   align-items: center;
   justify-content: center;
-  font-family: monospace;
-  font-weight: bold;
-  color: #fff;
-  z-index: 1;
 }
 
-.progress-ring::before {
-  content: "";
-  position: absolute;
-  inset: 0;
+.inner-circle {
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-neutral);
   border-radius: 50%;
-  z-index: -1;
-  background: conic-gradient(#8ebeb576 calc(var(--val) * 1%), #2a2a2a 0);
-  -webkit-mask: radial-gradient(farthest-side, transparent 75%, black 80%);
-  mask: radial-gradient(farthest-side, transparent 75%, black 80%);
-  transition: --val 0.6s ease-out;
+  align-items: center;
+  justify-content: center;
 }
+
 
 .title-wrapper {
   margin-left: 32px;
@@ -634,32 +635,159 @@ fieldset {
 }
 
 .mission-card__status {
-  gap: 40px;
+
+  gap: 60px;
 }
+
+.card__status {
+  gap: 12px;
+}
+
+.status__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #a5b5c18f;
+}
+
+.status__time {
+  font-weight: 700;
+}
+
+
 
 .chevron-icon {
   display: inline-block;
   transition: transform 0.3s ease;
 }
 
-.mission__body-wrapper {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.4s ease-out;
+.chevron-icon.rotate {
+  transform: rotate(180deg);
 }
 
-.mission__body {
-  overflow: hidden;
+.mission-card__body {
+
+
+  width: 100%;
 }
 
-.mission__body-item {
-  gap: 12px;
+.mission-card__list {
+  list-style: none;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 14px;
+  margin-left: 60px;
+}
+
+.status-message {
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  background-color: #144940;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+  z-index: 1000;
+}
+
+
+
+
+
+
+.card__list-item {
+  justify-content: space-between;
+  max-width: 1000px;
+  width: 100%;
+  margin-bottom: 40px;
+  padding: 16px;
+  border: 1px solid #57595a31;
+  border-radius: 16px;
+}
+
+.list-item__time {
+  color: #f0f1f2;
+  background: #335b696a;
+  text-align: center;
+  padding: 12px 24px;
+  min-width: 120px;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+
+.task-label {
+  gap: 16px;
   align-items: center;
-  padding: 12px 0;
+
+  cursor: pointer;
 }
 
-.mission-card.is-open .mission__body-wrapper {
-  grid-template-rows: 1fr;
+
+.task-check {
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  /* Kareyi yuvarlak yapar */
+  border: 2px solid #3b444b;
+  /* İşaretsiz kenarlık rengi */
+  background-color: transparent;
+  margin: 0;
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+
+}
+
+
+
+/* Checkbox işaretlendiğinde kutu rengi */
+.task-check:checked {
+  background-color: #79949f;
+  border-color: #79949f;
+}
+
+/* İşaretlendiğinde beliren TİK */
+.task-check:checked::after {
+  content: '';
+  width: 4px;
+  height: 9px;
+  border: solid #0d1114;
+  /* TİK rengi (koyu arka planınıza uygun) */
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin-bottom: 2px;
+}
+
+
+
+
+.card__ctas {
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 12px;
+
+}
+
+
+
+.action__button {
+  background: none;
+  color: #c3d0d56a;
+  padding: 12px;
+  max-width: fit-content;
+}
+
+.action__button:hover {
+  color: #9cb4bdef;
 }
 
 .mission-card.is-open .chevron-icon {

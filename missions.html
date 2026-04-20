@@ -55,41 +55,15 @@
 
           <div class="flex-column" id="activeMissions">
             <h2>Active Missions</h2>
-            <div class="flex-column mission-card">
-              <div class="flex-row mission-card__header">
-                <div class="flex-row">
-                  <div class="progress-ring" style="--val: 60">60%</div>
+          </div>
 
-                  <div class="flex-column title-wrapper">
-                    <h3>WRITE API LOGIC</h3>
-                    <span class="mission-card__type">URGENT</span>
-                  </div>
-                </div>
-
-                <div class="flex-row mission-card__status">
-                  <span>2H LEFT</span>
-                  <span class="chevron-icon">▼</span>
-                </div>
-              </div>
-              <div class="mission__body-wrapper">
-                <div class="mission__body">
-                  <ul>
-                    <li class="flex-row mission__body-item">
-                      <span class="check-box">✔</span> Setup React Boilerplate
-                    </li>
-                    <li class="flex-row mission__body-item">
-                      <span class="check-box">○</span> Fetch API Data
-                    </li>
-                  </ul>
-
-                  <button class="btn-remove">X REMOVE MISSION</button>
-                </div>
-              </div>
-            </div>
+          <div id="statusMessage" class="status-message hidden">
+            Mission completed successfully!
           </div>
 
           <div class="hidden" id="completedMissions">
             <h2>Completed Missions</h2>
+            <div class="flex-column" id="completedMissionCard"></div>
           </div>
         </div>
       </main>
@@ -102,6 +76,53 @@
         <p>• LOCAL DATA</p>
       </span>
     </footer>
+    <template id="missionCardTemplate">
+      <div class="flex-column mission-card" id="missionCard">
+        <div class="flex-row mission-card__header">
+          <div class="flex-row">
+            <div class="flex-row progress-circular">
+              <div class="flex-row inner-circle">
+                <span class="progress-value">0%</span>
+              </div>
+            </div>
+
+            <div class="flex-column title-wrapper">
+              <h3 class="mission-title"></h3>
+              <span class="mission-card__type"></span>
+            </div>
+          </div>
+          <div class="flex-row mission-card__status">
+            <div class="flex-column card__status">
+              <span class="status__time"></span>
+            </div>
+            <span class="chevron-icon">▼</span>
+          </div>
+        </div>
+
+        <div class="flex-column mission-card__body hidden">
+          <ul class="flex-column mission-card__list" id="ulElement"></ul>
+          <div class="flex-row card__ctas">
+            <button class="btn action__button" id="updateButton">UPDATE</button>
+            <button class="btn action__button complete-all__button">
+              MARK ALL AS COMPLETE
+            </button>
+
+            <button class="btn action__button remove-card__button">
+              REMOVE
+            </button>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template id="cardStepTemplate">
+      <li class="flex-row card__list-item">
+        <label class="flex-row task-label">
+          <input type="checkbox" class="task-check" />
+          <span class="task-text"></span>
+        </label>
+        <span class="list-item__time"></span>
+      </li>
+    </template>
     <script src="./missions.js"></script>
   </body>
 </html>

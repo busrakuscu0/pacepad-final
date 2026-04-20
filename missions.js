@@ -5,18 +5,27 @@ const activeButton = document.getElementById("activeButton");
 const completedButton = document.getElementById("completedButton");
 const activeMissions = document.getElementById("activeMissions");
 const completedMissions = document.getElementById("completedMissions");
+const missionCardTemplate = document.getElementById("missionCardTemplate");
+const cardStepTemplate = document.getElementById("cardStepTemplate");
 
 const missionMainTitle = document.getElementById("missionMainTitle");
 const titleError = document.getElementById("titleError");
 const missionTypes = document.getElementsByName("missionType");
 const missionTypeError = document.getElementById("missionTypeError");
 const atomicStepsError = document.getElementById("atomicStepsError");
-const stepInputs = document.querySelectorAll(".list-item__input");
 
 const formElement = document.getElementById("formElement");
 const toggleButton = document.getElementById("focusToggleButton");
 const toggleLabel = document.getElementById("toggleLabel");
 const toggleStatus = document.getElementById("toggleStatus");
+
+const statusCard = document.querySelector(".card__status span");
+const updateButton = document.getElementById("updateButton");
+
+const missionCard = document.getElementById("missionCard");
+const completedMissionCard = document.getElementById("completedMissionCard");
+
+const ulElement = document.getElementById("ulElement");
 
 const addStepButton = document.getElementById("addStepButton");
 const stepList = document.getElementById("stepList");
@@ -106,11 +115,11 @@ function timePicker() {
     showError();
     return;
   } else if (currentHour === 0) {
-    finalTime = `${currentMinute}m`;
+    finalTime = `${currentMinute}M`;
   } else if (currentMinute === 0) {
-    finalTime = `${currentHour}h`;
+    finalTime = `${currentHour}H`;
   } else {
-    finalTime = `${currentHour}h ${currentMinute}m`;
+    finalTime = `${currentHour}H ${currentMinute}M`;
   }
 
   if (targetButton) {
@@ -165,6 +174,10 @@ function addNewStep() {
 
   updateStepNumbers();
 }
+
+const selectedType = document.querySelector(
+  'input[name="missionType"]:checked',
+);
 
 function validateForm() {
   if (!missionMainTitle.value.trim()) {
@@ -244,6 +257,8 @@ function switchTab(tab) {
   });
 }
 
+document.addEventListener("DOMContentLoaded", renderMissions);
+
 activeButton?.addEventListener("click", () => switchTab("active"));
 completedButton?.addEventListener("click", () => switchTab("completed"));
 
@@ -282,27 +297,209 @@ formElement?.addEventListener("submit", function (event) {
   event.preventDefault();
 
   formCorrect = true;
-
   validateForm();
 
   if (formCorrect) {
-    const missionData = {
-      title: document.querySelector(".mission-title__input").value,
-      type: document.querySelector('input[name="missionType"]:checked').value,
-      steps: [], // Adımları burada liste olarak tutacağız
-    };
+    const atomicStepsArray = [];
+    const selectedType = document.querySelector(
+      'input[name="missionType"]:checked',
+    );
 
-    // Tüm atomic step'leri ve saatlerini alalım
-    const steps = document.querySelectorAll(".breakdown__list-item");
-    steps.forEach((step) => {
-      const text = step.querySelector(".list-item__input").value;
-      const time = step.querySelector(".set-time__button span").textContent;
+    const stepInputs = document.querySelectorAll(".list-item__input");
 
-      missionData.steps.push({ text, time });
+    stepInputs.forEach((input) => {
+      const stepName = input.value.trim();
+
+      if (stepName !== "") {
+        const parentRow = input.closest(".breakdown__list-item");
+        const timeBtn = parentRow.querySelector(".set-time__button");
+        let selectedTime = timeBtn.textContent.trim();
+      }
+
+      atomicStepsArray.push({
+        name: stepName,
+        time: selectedTime,
+        completed: false,
+      });
     });
 
-    localStorage.setItem("currentMission", JSON.stringify(missionData));
+    const missionData = {
+      id: Date.now().toString(),
+      title: missionMainTitle.value.trim(),
+      focusMode: toggleButton?.getAttribute("aria-checked") === "true",
+      type: selectedType.value,
+      steps: atomicStepsArray,
+      status: "active",
+    };
+
+    const allMissions = JSON.parse(localStorage.getItem("allMissions")) || [];
+    allMissions.push(missionData);
+    localStorage.setItem("allMissions", JSON.stringify(allMissions));
 
     window.location.href = "missions.html";
   }
 });
+
+function showStatusMessage(message) {
+  const statusMessage = document.getElementById("statusMessage");
+
+  if (!statusMessage || !message) return;
+
+  statusMessage.textContent = message;
+  statusMessage.classList.remove("hidden");
+
+  window.toastTimeout = setTimeout(() => {
+    statusMessage.classList.add("hidden");
+  }, 3000);
+}
+
+function toggleMissionStatus(
+  targetContainer,
+  statusText,
+  buttonText,
+  message,
+  card,
+) {
+  if (targetContainer && card) {
+    targetContainer.appendChild(card);
+  }
+
+  const cardStatus = card.querySelector(".mission-card__status");
+  const completeAllButton = card.querySelector(".complete-all__button");
+
+  if (cardStatus) cardStatus.textContent = statusText;
+  if (completeAllButton) completeAllButton.textContent = buttonText;
+
+  if (message) {
+    showStatusMessage(message);
+  }
+}
+
+function updateProgress(cardElement) {
+  const cardCheckboxes = cardElement.querySelectorAll(".task-check");
+  const totalTasks = cardCheckboxes.length;
+
+  const completedTasks = Array.from(cardCheckboxes).filter(
+    (checkbox) => checkbox.checked,
+  ).length;
+
+  const percentage = Math.round((completedTasks / totalTasks) * 100);
+  const progressRing = cardElement.querySelector(".progress-circular");
+  const progressValue = cardElement.querySelector(".progress-value");
+
+  if (progressRing)
+    progressRing.style.setProperty("--percent", `${percentage}%`);
+  if (progressValue) progressValue.textContent = `${percentage}%`;
+
+  const missionId = cardElement.id.replace("missionCard-", "");
+  const allMissions = JSON.parse(localStorage.getItem("allMissions")) || [];
+  const missionIndex = allMissions.findIndex((m) => m.id === missionId);
+
+  if (missionIndex !== -1) {
+    allMissions[missionIndex].steps.forEach((step, index) => {
+      step.completed = cardCheckboxes[index].checked;
+    });
+
+    const currentStatus = allMissions[missionIndex].status;
+
+    if (percentage === 100 && currentStatus !== "completed") {
+      allMissions[missionIndex].status = "completed";
+      toggleMissionStatus(
+        completedMissions,
+        "Completed",
+        "MARK ALL AS INCOMPLETE",
+        "Mission completed successfully!",
+        cardElement,
+      );
+    } else if (percentage < 100 && currentStatus === "completed") {
+      allMissions[missionIndex].status = "active";
+      toggleMissionStatus(
+        activeMissions,
+        "2H LEFT",
+        "MARK ALL AS COMPLETE",
+        "Mission moved back to active missions.",
+        cardElement,
+      );
+    }
+    localStorage.setItem("allMissions", JSON.stringify(allMissions));
+  }
+}
+
+function renderMissions() {
+  if (!activeMissions || !completedMissions || !missionCardTemplate) return;
+
+  const allMissions = JSON.parse(localStorage.getItem("allMissions")) || [];
+
+  allMissions.forEach((mission) => {
+    const cardClone = missionCardTemplate.content.cloneNode(true);
+    const cardElement = cardClone.querySelector(".mission-card");
+    const ulElement = cardClone.querySelector(".mission-card__list");
+
+    cardElement.id = `missionCard-${mission.id}`;
+    cardClone.querySelector(".mission-title").textContent = mission.title;
+    cardClone.querySelector(".mission-card__type").textContent = mission.type;
+
+    mission.steps.forEach((step) => {
+      const stepClone = cardStepTemplate.content.cloneNode(true);
+      const checkbox = cardElement.querySelector(".task-check");
+
+      stepClone.querySelector(".task-text").textContent = step.name;
+      stepClone.querySelector(".list-item__time").textContent = step.time;
+      checkbox.checked = step.completed;
+
+      ulElement.appendChild(stepClone);
+    });
+
+    const isCompleted = mission.status === "completed";
+    const targetContainer = isCompleted ? completedMissions : activeMissions;
+
+    if (isCompleted) {
+      cardClone.querySelector(".mission-card__status").textContent =
+        "Completed";
+      cardClone.querySelector(".complete-all__button").textContent =
+        "MARK ALL AS INCOMPLETE";
+    }
+
+    targetContainer.appendChild(cardClone);
+
+    const cardHeader = cardClone.querySelector(".mission-card__header");
+    const chevronIcon = cardClone.querySelector(".chevron-icon");
+    const cardBody = cardClone.querySelector(".mission-card__body");
+    const cardCheckboxes = cardElement.querySelectorAll(".task-check");
+    const completeAllButton = cardClone.querySelector(".complete-all__button"); // Kendi class'ını yaz
+    const removeButton = cardClone.querySelector(".remove-card__button");
+
+    cardHeader?.addEventListener("click", () => {
+      chevronIcon.classList.toggle("rotate");
+      cardBody.classList.toggle("hidden");
+    });
+
+    cardCheckboxes?.forEach((checkbox) => {
+      checkbox.addEventListener("change", () => {
+        updateProgress(cardElement);
+      });
+    });
+
+    completeAllButton?.addEventListener("click", () => {
+      const isCurrentlyCompleted = completedMissions.contains(cardElement);
+
+      if (isCurrentlyCompleted) {
+        cardCheckboxes.forEach((cb) => (cb.checked = false));
+      } else {
+        cardCheckboxes.forEach((cb) => (cb.checked = true));
+      }
+      updateProgress(cardElement);
+    });
+
+    removeBtn?.addEventListener("click", () => {
+      cardElement.remove();
+
+      let updatedMissions =
+        JSON.parse(localStorage.getItem("allMissions")) || [];
+      updatedMissions = updatedMissions.filter((m) => m.id !== mission.id);
+      localStorage.setItem("allMissions", JSON.stringify(updatedMissions));
+      showStatusMessage("Mission removed successfully.");
+    });
+    updateProgress(cardElement);
+  });
+}
