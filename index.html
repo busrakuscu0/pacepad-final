@@ -73,33 +73,43 @@
                 alt="Add Icon"
               />
             </span>
+
             <span class="box__title" id="emptyStateTitle"
               >Ready to initiate your first mission?</span
             >
-            <span class="box__text"
-              >Click to break down your first mission.</span
-            >
+            <span class="box__text">Click to break down your mission.</span>
           </a>
-          <div class="focus-missions"></div>
+          <div class="flex-column focus-list hidden" id="focusList">
+            <h1 class="focus-list__title" id="focusListTitle">
+              FOCUS MISSIONS
+            </h1>
+          </div>
         </div>
         <div class="flex-column dashboard">
           <div class="flex-column progress-card">
-            <div class="flex-row progress-circular progress-circular--lg">
+            <div class="flex-row progress-circle progress-circle--lg">
               <div class="flex-row inner-circle">
                 <span class="progress-value progress-value--lg"
-                  >🚀 ADD MISSIONS TO TRACK PROGRESS</span
+                  ><span class="percentage-symbol">%</span></span
                 >
               </div>
             </div>
-            <span>You've completed 4/6 core sessions.</span>
-          </div>
-          <div class="flex-column time-remaining">
-            <div class="flex-row justify-space-between time-remaining__header">
-              <span>TIME REMAINING</span>
-              <span>2H 45M LEFT</span>
+            <span class="progress__text"></span>
+            <div class="timer__container">
+              <div class="flex-row justify-space-between timer__header">
+                <span class="timer__label">TIME REMAINING</span>
+                <span class="timer__value" id="timeValue"></span>
+              </div>
+              <div class="timer__progress-bar">
+                <div class="progress-bar-fill" id="progressFill"></div>
+              </div>
             </div>
-            <span>-----------------------</span>
           </div>
+
+          <a href="./strategies.html" class="flex-column strategy__indicator">
+            <span class="indicator__label">CURRENT STRATEGY</span>
+            <span class="indicator__text" id="currentStrategy">QUICK WINS</span>
+          </a>
         </div>
       </main>
     </div>
@@ -111,6 +121,55 @@
         <p>• LOCAL DATA</p>
       </span>
     </footer>
-    <script src="./script.js"></script>
+    <template id="missionCardTemplate">
+      <div class="flex-column mission-card" id="missionCard">
+        <div class="flex-row mission-card__header">
+          <div class="flex-row">
+            <div class="flex-row progress-circle progress-circle--sm">
+              <div class="flex-row inner-circle">
+                <span class="progress-value progress-value--sm">0%</span>
+              </div>
+            </div>
+
+            <div class="flex-column title-wrapper">
+              <h3 class="mission-title"></h3>
+              <span class="mission-card__type"></span>
+            </div>
+          </div>
+          <span class="focus-badge hidden">FOCUS</span>
+          <div class="flex-row mission-card__status">
+            <div class="flex-column card__status">
+              <span class="status__label">TIME REMAINING</span>
+              <span class="status__time"></span>
+            </div>
+            <span class="chevron-icon">▼</span>
+          </div>
+        </div>
+
+        <div class="flex-column mission-card__body hidden">
+          <ul class="flex-column mission-card__list"></ul>
+          <div class="flex-row card__ctas">
+            <button class="btn action__button update__button">UPDATE</button>
+            <button class="btn action__button complete-all__button">
+              MARK ALL AS COMPLETE
+            </button>
+
+            <button class="btn action__button remove-card__button">
+              REMOVE
+            </button>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template id="cardStepTemplate">
+      <li class="flex-row card__list-item">
+        <label class="flex-row task-label">
+          <input type="checkbox" class="task-check" />
+          <span class="task-text"></span>
+        </label>
+        <span class="list-item__time"></span>
+      </li>
+    </template>
+    <script src="./missions.js"></script>
   </body>
 </html>

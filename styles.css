@@ -139,13 +139,15 @@ fieldset {
 }
 
 .main__container {
-  align-items: center;
   gap: 60px;
-  flex: 1;
   width: 100%;
   max-width: 1100px;
   margin: 50px 60px;
   color: #A5B5C1;
+}
+
+.align-center {
+  align-items: center;
 }
 
 
@@ -154,39 +156,119 @@ fieldset {
 .workspace {
   gap: 20px;
   align-items: center;
-  justify-content: center;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 800px;
+
   width: 100%;
+
+}
+
+.focus-list {
+  width: 100%;
+  margin: 0;
+}
+
+.focus-list__title {
+  font-size: 12px;
+  font-weight: 300px;
+  letter-spacing: 3px;
+  color: #6b8783;
+  margin-top: 60px;
 }
 
 .dashboard {
   max-width: 400px;
-  gap: 120px;
+  gap: 80px;
   align-items: center;
-
+  justify-content: flex-start;
+  margin-top: 60px;
+  align-self: flex-start;
 }
 
 
 .progress-card {
-  gap: 24px;
+  gap: 40px;
   align-items: center;
-
   padding: 12px;
 
-}
-
-.time-remaining {
   flex: 1;
-  border: 1px solid #3b444b;
-  border-radius: 10px;
-  padding: 24px 40px;
 }
 
-.time-remaining__header {
-  gap: 12px;
+.progress__text {
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+.percentage-symbol {
+  font-size: 24px;
+  color: rgba(101, 107, 106, 0.771);
+}
+
+
+.timer__container {
+  width: 100%;
+
+  flex: 1;
+
+}
+
+.strategy__indicator {
+  gap: 16px;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 16px 12px;
+  border: 1px solid #2f313266;
+  background-color: #1d272569;
+  border-radius: 10px;
+  margin-top: auto;
+
+}
+
+.indicator__label {
+
   font-size: 12px;
+  font-weight: 600;
+  color: #6b8485;
+}
+
+.indicator__text {
+  font-size: 14px;
   font-weight: 700;
+  color: #9ccece;
+}
+
+
+.timer__header {
+  gap: 12px;
+  font-weight: 700;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.timer__label {
+  color: #6b8485;
+  font-size: 12px;
+  font-weight: 600;
+
+}
+
+
+.timer__value {
+
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.timer__progress-bar {
+  width: 100%;
+  height: 4px;
+  background-color: var(--color-tertiary);
+  border-radius: 4px;
+}
+
+.progress-bar--fill {
+  width: 0%;
+  background-color: var(--color-neutral);
+  border-radius: 4px;
 }
 
 .mission-creator {
@@ -195,7 +277,9 @@ fieldset {
   justify-content: center;
   padding: 6px 6px 6px 16px;
   width: 100%;
-  flex: 1;
+  flex: 0;
+  margin-top: 160px;
+  margin-bottom: 60px;
   border: none;
   border-radius: 10px;
   background-color: #0b0b0ba8;
@@ -334,6 +418,12 @@ fieldset {
 
 .mission-title {
   text-transform: uppercase;
+  margin-right: 20px;
+  flex: 1;
+  min-width: 0;
+  word-wrap: break-word;
+  word-break: break-all;
+
 }
 
 
@@ -618,12 +708,17 @@ fieldset {
   align-items: center;
   margin-top: 40px;
   border-left: 4px solid #134b4bb2;
-  background-color: #333e3a2e;
-  border: 1px solid #595f5f72;
-  border-radius: 10px;
+  background-color: #32343624;
+  border: 1px solid #0a0c1072;
+  border-radius: 20px;
   padding: 40px;
   width: 100%;
 
+}
+
+
+#focusList .mission-title {
+  font-size: 14px;
 }
 
 .mission-card:active {
@@ -641,7 +736,7 @@ fieldset {
 }
 
 .focus-badge {
-  background-color: rgba(162, 136, 227, 0.811);
+  background-color: rgba(93, 155, 186, 0.707);
   color: white;
   font-size: 12px;
   padding: 4px 12px;
@@ -649,13 +744,18 @@ fieldset {
   font-weight: 700;
   margin-left: auto;
   margin-right: 20px;
+  flex-shrink: 0;
+  text-align: center;
+  /* Metin ne kadar uzarsa uzasın beni ezme! */
+  width: 90px;
 }
 
 
 
-.progress-circular {
+.progress-circle {
+  flex-shrink: 0;
   border-radius: 50%;
-  background: conic-gradient(var(--color-tertiary) var(--percent, 0%), #1a252b 0deg);
+  background: conic-gradient(var(--color-tertiary) var(--percent, 0%), #1a2628 0deg);
   align-items: center;
   justify-content: center;
 
@@ -663,12 +763,12 @@ fieldset {
 
 
 
-.progress-circular--lg {
+.progress-circle--lg {
   width: 200px;
   height: 200px;
 }
 
-.progress-circular--sm {
+.progress-circle--sm {
   width: 60px;
   height: 60px;
 }
@@ -687,7 +787,7 @@ fieldset {
 }
 
 .progress-value--lg {
-  font-size: 16px;
+  font-size: 48px;
 
 }
 
@@ -737,6 +837,11 @@ fieldset {
 
 .status__time {
   font-weight: 700;
+  width: 120px;
+  /* Zaman bölümüne sabit bir genişlik ver */
+  flex-shrink: 0;
+  /* Asla ezilme */
+  text-align: right;
 
 }
 
@@ -745,6 +850,7 @@ fieldset {
 .chevron-icon {
   display: inline-block;
   transition: transform 0.3s ease;
+
 }
 
 .rotate {
@@ -1102,7 +1208,7 @@ fieldset {
   padding: 32px 60px;
   max-width: fit-content;
   margin-top: 100px;
-  background-color: #1d2725a5;
+  background-color: #1d27256c;
   border: 2px dotted #374A4D;
   border-radius: 20px;
 
