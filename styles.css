@@ -99,6 +99,7 @@ fieldset {
   width: 100%;
   height: 100vh;
   border-right: 1px solid #252323;
+  display: none;
 }
 
 .nav__logo img {
@@ -231,9 +232,12 @@ fieldset {
 }
 
 .indicator__text {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
-  color: #9ccece;
+}
+
+.clear-all__button {
+  box-shadow: 0 0 2px 0 #c5dcdb84;
 }
 
 
@@ -261,14 +265,47 @@ fieldset {
 .timer__progress-bar {
   width: 100%;
   height: 4px;
-  background-color: var(--color-tertiary);
+
+  background-color: #1a2628;
   border-radius: 4px;
 }
 
 .progress-bar--fill {
-  width: 0%;
-  background-color: var(--color-neutral);
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-tertiary);
   border-radius: 4px;
+
+}
+
+.quote__container {
+  background-image: linear-gradient(rgba(8, 113, 142, 0.233), rgba(27, 99, 127, 0.4)), url('./assets/quote-bg.svg');
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center right;
+  width: 100%;
+  margin-top: 140px;
+  border-radius: 10px;
+  padding: 20px;
+
+}
+
+
+.quote__content {
+  width: 100%;
+  max-width: 300px;
+  font-weight: 600;
+  margin: 20px;
+  text-shadow: 0 0 12px rgba(27, 114, 121, 0.6), 0 0 24px rgba(52, 172, 185, 0.385);
+}
+
+.quote-author {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #8892b0;
+  align-self: end;
+  border-top: 1px solid #2c4d6776;
+  padding-top: 20px;
 }
 
 .mission-creator {
@@ -974,7 +1011,7 @@ fieldset {
 
 .action__button {
   background: none;
-  color: #c3d0d56a;
+  color: #c3d0d5a7;
   padding: 12px;
   max-width: fit-content;
 }
@@ -1025,11 +1062,7 @@ fieldset {
   font-weight: 500;
 }
 
-.strategy__container {
-  max-width: 1100px;
-  margin: 40px;
-  gap: 30px;
-}
+
 
 .strategy-card {
   align-items: center;
@@ -1260,6 +1293,31 @@ fieldset {
   gap: 12px;
 }
 
+.hamburger-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  /* Çizgiler arası mesafe */
+  padding: 10px;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: #333;
+  /* Çizgi rengi */
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger-btn.active span {
+  background-color: #ff4757;
+  /* İkonun rengini kırmızıya veya marka rengine çekebilirsin */
+}
 
 
 
@@ -1267,24 +1325,15 @@ fieldset {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.strategy__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  margin: 20px;
+  gap: 20px;
+}
 
 
 .hidden {
@@ -1295,4 +1344,11 @@ fieldset {
 
 @media all and (min-width: 640px) and (max-width: 1023.98px) {}
 
-@media all and (min-width: 1024px) {}
+@media all and (min-width: 1024px) {
+  .strategy__container {
+    flex-direction: row;
+    max-width: 1100px;
+    margin: 40px;
+    gap: 30px;
+  }
+}

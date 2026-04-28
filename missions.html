@@ -54,7 +54,9 @@
           </div>
 
           <div class="flex-column" id="activeMissions">
-            <h2>Active Missions</h2>
+            <div class="flex-row justify-space-between align-baseline">
+              <h2>Active Missions</h2>
+            </div>
             <a
               href="startmission.html"
               class="flex-column empty-state"
@@ -138,7 +140,7 @@
     <template id="cardStepTemplate">
       <li class="flex-row card__list-item">
         <label class="flex-row task-label">
-          <input type="checkbox" class="task-check" />
+          <input type="checkbox" class="task-check" autocomplete="off" />
           <span class="task-text"></span>
         </label>
         <span class="list-item__time"></span>

@@ -1,14 +1,24 @@
+// VARIABLES
+
 const strategyCards = document.querySelectorAll(".strategy-card");
 const savedIndex = localStorage.getItem("selectedCardIndex") || 0;
 
-let isActive = false;
+document.addEventListener("DOMContentLoaded", () => {
+  const navbar = document.getElementById("navbar");
+  const btn = document.getElementById("menuBtn");
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("active");
+
+    navbar.classList.remove("hidden");
+  });
+});
 
 function setCardState(selectedIndex) {
   strategyCards.forEach((card, i) => {
-    // Eğer index'ler eşleşiyorsa isActive true olur, eşleşmiyorsa false (Uzun if/else'e gerek kalmadı)
     const isActive = i == selectedIndex;
 
     card.classList.toggle("card--active", isActive);
+
     card
       .querySelector(".card-icon")
       .classList.toggle("card-icon--active", isActive);
@@ -18,20 +28,16 @@ function setCardState(selectedIndex) {
       .classList.toggle("status-dot--active", isActive);
 
     const statusText = card.querySelector(".status-text");
-    statusText.textContent = isActive ? "ACTIVE" : "ALTERNATIVE";
+    if (statusText) {
+      statusText.textContent = isActive ? "ACTIVE" : "ALTERNATIVE";
+    }
 
-    // -----------------------------------------------------
-    // YENİ EKLENEN KISIM: AKTİF STRATEJİNİN İSMİNİ KAYDET
-    // -----------------------------------------------------
     if (isActive) {
-      // DİKKAT: Burada strateji isminin yazdığı elementi seçiyoruz.
-      // Eğer sende başlık <h3> değilse veya ".strategy-title" gibi bir class'ı varsa burayı ona göre değiştir!
-      const strategyName = card
-        .querySelector(".card__title")
-        .textContent.trim();
-
-      // Ana sayfanın okuması için veritabanına kaydet
-      localStorage.setItem("activeStrategy", strategyName);
+      const strategyTitle = card.querySelector(".card__title");
+      if (strategyTitle) {
+        const strategyName = strategyTitle.textContent.trim();
+        localStorage.setItem("activeStrategy", strategyName);
+      }
     }
   });
 }
@@ -44,5 +50,3 @@ strategyCards.forEach((card, index) => {
     localStorage.setItem("selectedCardIndex", index);
   });
 });
-
-localStorage.setItem("activeStrategy", savedIndex);

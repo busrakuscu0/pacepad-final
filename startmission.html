@@ -50,6 +50,7 @@
               placeholder="Identify main title for your mission"
               id="missionMainTitle"
               aria-describedby="titleError"
+              autocomplete="off"
             />
 
             <div class="flex-row toggle__container">
@@ -152,6 +153,7 @@
                   class="list-item__input"
                   placeholder="Define an atomic step..."
                   aria-describedby="atomicStepsError"
+                  autocomplete="off"
                 />
 
                 <div class="flex-row list-item__actions">
@@ -166,7 +168,7 @@
                     />
                     <span>SET TIME</span>
                   </button>
-                  <button class="btn delete__button">REMOVE</button>
+                  <button class="btn delete__button">DELETE</button>
                 </div>
               </div>
 
@@ -178,7 +180,7 @@
                 <img src="./assets/icons/add-icon.svg" />
                 ADD ATOMIC STEP
               </button>
-              <p class="form__error" id="atomicStepsError"></p>
+              <p class="form__error" id="stepsError"></p>
             </div>
           </fieldset>
           <button type="submit" class="flex-row btn submit__button">
@@ -244,6 +246,7 @@
           type="text"
           class="list-item__input"
           placeholder="Define an atomic step..."
+          autocomplete="off"
         />
 
         <div class="flex-row list-item__actions">
