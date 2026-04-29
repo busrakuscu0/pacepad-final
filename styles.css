@@ -17,11 +17,9 @@
   --text-xl: 1.25rem;
   --text-2xl: 1.5rem;
   --text-3xl: 2rem;
-
-  --max-content: 780px;
-
-
-
+  --text-4xl: 2.5rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.5rem;
 
 
 }
@@ -66,7 +64,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: var(--text-2xl);
   letter-spacing: 0.1rem;
   line-height: 150%;
   margin: 0;
@@ -74,7 +72,7 @@ h2 {
 
 h3 {
   margin: 0;
-  font-size: 1rem;
+  font-size: var(--text-md);
 }
 
 fieldset {
@@ -116,7 +114,7 @@ fieldset {
   display: flex;
   align-items: center;
   gap: 20px;
-  font-size: 14px;
+  font-size: var(--text-sm);
   color: #545454;
 }
 
@@ -168,7 +166,7 @@ fieldset {
 }
 
 .focus-list__title {
-  font-size: 12px;
+  font-size: var(--text-xs);
   font-weight: 300px;
   letter-spacing: 3px;
   color: #6b8783;
@@ -194,12 +192,12 @@ fieldset {
 }
 
 .progress__text {
-  font-size: 14px;
+  font-size: var(--text-sm);
   margin-bottom: 40px;
 }
 
 .percentage-symbol {
-  font-size: 24px;
+  font-size: var(--text-2xl);
   color: rgba(101, 107, 106, 0.771);
 }
 
@@ -225,13 +223,13 @@ fieldset {
 
 .indicator__label {
 
-  font-size: 12px;
+  font-size: var(--text-xs);
   font-weight: 600;
   color: #6b8485;
 }
 
 .indicator__text {
-  font-size: 16px;
+  font-size: var(--text-md);
   font-weight: 700;
 }
 
@@ -249,7 +247,7 @@ fieldset {
 
 .timer__label {
   color: #6b8485;
-  font-size: 12px;
+  font-size: var(--text-xs);
   font-weight: 600;
 
 }
@@ -257,7 +255,7 @@ fieldset {
 
 .timer__value {
 
-  font-size: 14px;
+  font-size: var(--text-sm);
   font-weight: 400;
 }
 
@@ -299,7 +297,7 @@ fieldset {
 }
 
 .quote-author {
-  font-size: 12px;
+  font-size: var(--text-xs);
   letter-spacing: 3px;
   color: #8892b0;
   align-self: end;
@@ -307,7 +305,7 @@ fieldset {
   padding-top: 20px;
 }
 
-.mission-creator {
+.mission-input {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -321,17 +319,17 @@ fieldset {
   background-color: #0b0b0ba8;
 }
 
-.mission-creator:focus-within {
+.mission-input:focus-within {
   border-color: #769f9d29;
   box-shadow: 0 0 0 1px #769f9d29;
 }
 
-.mission-creator__input {
+.mission-input__field {
   width: 100%;
   border: none;
   outline: none;
   background: none;
-  font-size: 20px;
+  font-size: var(--text-xl);
   color: #ffffffac;
 }
 
@@ -355,7 +353,7 @@ fieldset {
 
 
 .missions__title {
-  font-size: 16px;
+  font-size: var(--text-md);
   letter-spacing: 0.2rem;
 }
 
@@ -373,7 +371,7 @@ fieldset {
 .form__legend {
   width: 100%;
   margin-bottom: 20px;
-  font-size: 12px;
+  font-size: var(--text-xs);
   font-weight: 700;
   letter-spacing: 2px;
 }
@@ -392,7 +390,7 @@ fieldset {
 .form-title__input {
   border: none;
   outline: none;
-  font-size: 20px;
+  font-size: var(--text-xl);
   color: #ffffffac;
   background-color: #0b0b0b7b;
   border-radius: 10px;
@@ -412,7 +410,7 @@ fieldset {
 
 .toggle__label,
 .toggle__status {
-  font-size: 12px;
+  font-size: var(--text-xs);
   font-weight: 700;
   color: #8b9a9a;
 }
@@ -449,7 +447,7 @@ fieldset {
 
 .form__error {
   color: #71c1b5ec;
-  font-size: 14px;
+  font-size: var(--text-sm);
   font-weight: 800;
 }
 
@@ -499,12 +497,12 @@ fieldset {
 }
 
 .option__title {
-  font-size: 14px;
-  color: #f3f4f6df
+  font-size: var(--text-sm);
+  color: #f3f4f6df;
 }
 
 .option__subtitle {
-  font-size: 12px;
+  font-size: var(--text-xs);
   color: #656E70;
 }
 
@@ -556,7 +554,7 @@ fieldset {
 }
 
 .list-item__number {
-  font-size: 20px;
+  font-size: var(--text-xl);
   font-weight: 700;
   color: #3e4b4dd6;
   margin-right: 32px;
@@ -567,7 +565,7 @@ fieldset {
   background: none;
   border: none;
   outline: none;
-  font-size: 18px;
+  font-size: var(--text-lg);
   color: #ffffffac;
   width: 100%;
 }
@@ -584,7 +582,7 @@ fieldset {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: 14px;
+  font-size: var(--text-sm);
   border-radius: 40px;
   box-shadow: 0 0 3px 0 #c5dcdb33;
   padding: 10px;
@@ -652,7 +650,7 @@ fieldset {
 
 .column__label {
   color: #6b8783;
-  font-size: 12px;
+  font-size: var(--text-xs);
   letter-spacing: 2px;
   margin-bottom: 15px;
 }
@@ -661,7 +659,7 @@ fieldset {
   background: none;
   border: none;
   color: #3a4b49;
-  font-size: 20px;
+  font-size: var(--text-xl);
   cursor: pointer;
   transition: color 0.3s ease;
 }
@@ -671,20 +669,20 @@ fieldset {
 }
 
 .current__value {
-  font-size: 24px;
+  font-size: var(--text-2xl);
   color: #2a3b39;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .current__value.active {
-  font-size: 56px;
+  font-size: var(--text-6xl);
   font-weight: bold;
   color: #c9f5f0;
   text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
 }
 
 .time-separator {
-  font-size: 40px;
+  font-size: var(--text-4xl);
   color: #2a3b39;
   margin-top: 10px;
 }
@@ -713,7 +711,7 @@ fieldset {
   transform: translateX(-50%);
   z-index: 1000;
   background-color: #b6babc32;
-  color: white;
+  color: #ffffff;
   padding: 20px 60px;
   border-radius: 8px;
   box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6);
@@ -726,7 +724,7 @@ fieldset {
   right: 24px;
   background: transparent;
   border: none;
-  font-size: 24px;
+  font-size: var(--text-2xl);
   line-height: 1;
   color: #f0f1f2;
   cursor: pointer;
@@ -755,7 +753,7 @@ fieldset {
 
 
 #focusList .mission-card__title {
-  font-size: 14px;
+  font-size: var(--text-sm);
 }
 
 .mission-card:active {
@@ -774,8 +772,8 @@ fieldset {
 
 .focus__badge {
   background-color: rgba(93, 155, 186, 0.707);
-  color: white;
-  font-size: 12px;
+  color: #ffffff;
+  font-size: var(--text-xs);
   padding: 4px 12px;
   border-radius: 10px;
   font-weight: 700;
@@ -824,12 +822,12 @@ fieldset {
 }
 
 .progress-value--lg {
-  font-size: 48px;
+  font-size: var(--text-5xl);
 
 }
 
 .progress-value--sm {
-  font-size: 12px;
+  font-size: var(--text-xs);
 
 }
 
@@ -842,7 +840,7 @@ fieldset {
 .mission-card__type {
   color: #fbfbfb;
   font-weight: 700;
-  font-size: 12px;
+  font-size: var(--text-xs);
   max-width: fit-content;
   background-color: #3a8ac348;
   text-align: center;
@@ -862,13 +860,13 @@ fieldset {
 }
 
 .status__title {
-  font-size: 14px;
+  font-size: var(--text-sm);
   font-weight: 700;
   color: #a5b5c18f;
 }
 
 .status__label {
-  font-size: 12px;
+  font-size: var(--text-xs);
   color: #a5b5c18f;
 }
 
@@ -904,7 +902,7 @@ fieldset {
   list-style: none;
   justify-content: baseline;
   align-items: baseline;
-  font-size: 14px;
+  font-size: var(--text-sm);
 
 }
 
@@ -1058,7 +1056,7 @@ fieldset {
 
 
 .main__title {
-  font-size: 28px;
+  font-size: var(--text-2xl);
   font-weight: 500;
 }
 
@@ -1114,7 +1112,7 @@ fieldset {
 
 .card__text {
   text-align: center;
-  font-size: 16px;
+  font-size: var(--text-md);
   line-height: 150%;
 }
 
@@ -1126,7 +1124,7 @@ fieldset {
   transition: opacity 0.3s ease;
   z-index: 10;
   padding: 4px 16px;
-  font-size: 12px;
+  font-size: var(--text-xs);
   font-weight: 700;
   text-align: center;
   width: max-content;
@@ -1157,7 +1155,7 @@ fieldset {
 }
 
 .status__text {
-  font-size: 12px;
+  font-size: var(--text-xs);
   font-weight: 700;
 }
 
@@ -1223,14 +1221,14 @@ fieldset {
   background-color: #252f374f;
 }
 
-.btn__content {
+.mission-input__action {
   align-items: center;
   gap: 10px;
   padding-left: 20px;
   padding-right: 20px;
   width: min-content;
   font-weight: 600;
-  font-size: 14px;
+  font-size: var(--text-sm);
   color: #000000a0;
 }
 
@@ -1260,7 +1258,7 @@ fieldset {
 
 .empty-state__title {
   margin-top: 16px;
-  font-size: 20px;
+  font-size: var(--text-xl);
   font-weight: 800;
 }
 
