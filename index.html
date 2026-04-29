@@ -16,23 +16,20 @@
     <div class="body-flex">
       <header>
         <nav class="nav">
-          <a href="#" class="nav__logo"
+          <a href="index.html" class="nav__logo"
             ><img src="./assets/pacepad-logo.svg" alt="Pacepad Logo" />
           </a>
           <ul class="nav__list">
             <li class="nav__list-item">
               <img src="./assets/icons/core-icon.svg" alt="Core Icon" />
-              <a href="#" class="list-item--active">CORE</a>
+              <a href="index.html" class="list-item--active">CORE</a>
             </li>
             <li class="nav__list-item">
-              <img src="./assets/icons/mission-icon.svg" alt="Missions Icon" />
-              <a href="./missions.html">MISSIONS</a>
+              <img src="./assets/icons/mission-icon.svg" alt="Mission Icon" />
+              <a href="missions.html" class="list-item--active">MISSIONS</a>
             </li>
             <li class="nav__list-item">
-              <img
-                src="./assets/icons/strategy-icon.svg"
-                alt="Strategies Icon"
-              />
+              <img src="./assets/icons/strategy-icon.svg" alt="Strategy Icon" />
               <a href="./strategies.html">STRATEGIES</a>
             </li>
           </ul>
@@ -41,7 +38,6 @@
           >
         </nav>
       </header>
-
       <main class="flex-row main__container justify-space-between">
         <div class="flex-column workspace">
           <div class="flex-row mission-creator">
@@ -78,10 +74,10 @@
               />
             </span>
 
-            <span class="box__title" id="emptyStateTitle"
+            <span class="empty-state__title" id="emptyStateTitle"
               >Ready to initiate your first mission?</span
             >
-            <span class="box__text">Click to break down your mission.</span>
+            <span>Click to break down your mission.</span>
           </a>
           <div class="flex-column focus-list hidden" id="focusList">
             <h1 class="focus-list__title" id="focusListTitle">
@@ -124,12 +120,12 @@
       </main>
     </div>
     <footer class="footer">
-      <a href="#">CORE</a>
+      <a href="index.html">CORE</a>
       <span>© 2026, Pacepad. All rights reserved.</span>
-      <span class="footer-right">
+      <div class="footer__info">
         <a href="mailto:busra.kuscu@code2career.eu">Report</a>
         <p>• LOCAL DATA</p>
-      </span>
+      </div>
     </footer>
     <template id="missionCardTemplate">
       <div class="flex-column mission-card" id="missionCard">
@@ -141,30 +137,39 @@
               </div>
             </div>
 
-            <div class="flex-column title-wrapper">
-              <h3 class="mission-title"></h3>
+            <div class="flex-column title-group">
+              <h3 class="mission-card__title"></h3>
               <span class="mission-card__type"></span>
             </div>
           </div>
-          <span class="focus-badge hidden">FOCUS</span>
+          <span class="focus__badge hidden">FOCUS</span>
           <div class="flex-row mission-card__status">
-            <div class="flex-column card__status">
+            <div class="flex-column status__card">
               <span class="status__label">TIME REMAINING</span>
               <span class="status__time"></span>
             </div>
-            <span class="chevron-icon">▼</span>
+            <span
+              class="mission-card__toggle-icon"
+              aria-label="Expand or collapse mission details"
+              >▼</span
+            >
           </div>
         </div>
 
         <div class="flex-column mission-card__body hidden">
           <ul class="flex-column mission-card__list"></ul>
           <div class="flex-row card__ctas">
-            <button class="btn action__button update__button">UPDATE</button>
-            <button class="btn action__button complete-all__button">
+            <button type="button" class="btn action__button update__button">
+              UPDATE
+            </button>
+            <button
+              type="button"
+              class="btn action__button complete-all__button"
+            >
               MARK ALL AS COMPLETE
             </button>
 
-            <button class="btn action__button remove-card__button">
+            <button type="button" class="btn action__button remove__button">
               REMOVE
             </button>
           </div>
@@ -173,9 +178,9 @@
     </template>
     <template id="cardStepTemplate">
       <li class="flex-row card__list-item">
-        <label class="flex-row task-label">
-          <input type="checkbox" class="task-check" autocomplete="off" />
-          <span class="task-text"></span>
+        <label class="flex-row list-item__label">
+          <input type="checkbox" class="list-item__checkbox" />
+          <span class="list-item__text"></span>
         </label>
         <span class="list-item__time"></span>
       </li>

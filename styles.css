@@ -99,7 +99,6 @@ fieldset {
   width: 100%;
   height: 100vh;
   border-right: 1px solid #252323;
-  display: none;
 }
 
 .nav__logo img {
@@ -355,7 +354,7 @@ fieldset {
 }
 
 
-.mission__title {
+.missions__title {
   font-size: 16px;
   letter-spacing: 0.2rem;
 }
@@ -372,6 +371,7 @@ fieldset {
 }
 
 .form__legend {
+  width: 100%;
   margin-bottom: 20px;
   font-size: 12px;
   font-weight: 700;
@@ -389,7 +389,7 @@ fieldset {
 
 
 
-.input-field {
+.form-title__input {
   border: none;
   outline: none;
   font-size: 20px;
@@ -417,7 +417,7 @@ fieldset {
   color: #8b9a9a;
 }
 
-.toggle-btn {
+.toggle__button {
   display: inline-flex;
   align-items: center;
   width: 44px;
@@ -429,11 +429,11 @@ fieldset {
   padding: 0;
 }
 
-.toggle-btn--active {
+.toggle__button--active {
   background-color: #5a8782c9;
 }
 
-.toggle-slider {
+.toggle__slider {
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -443,7 +443,7 @@ fieldset {
   transition: transform 0.4s ease;
 }
 
-.toggle-btn--active .toggle-slider {
+.toggle__button--active .toggle__slider {
   transform: translateX(24px);
 }
 
@@ -453,7 +453,7 @@ fieldset {
   font-weight: 800;
 }
 
-.mission-title {
+.mission-card__title {
   text-transform: uppercase;
   margin-right: 20px;
   flex: 1;
@@ -508,7 +508,7 @@ fieldset {
   color: #656E70;
 }
 
-.sr-only {
+.mission-types__input {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -754,7 +754,7 @@ fieldset {
 }
 
 
-#focusList .mission-title {
+#focusList .mission-card__title {
   font-size: 14px;
 }
 
@@ -772,7 +772,7 @@ fieldset {
   width: 100%;
 }
 
-.focus-badge {
+.focus__badge {
   background-color: rgba(93, 155, 186, 0.707);
   color: white;
   font-size: 12px;
@@ -834,7 +834,7 @@ fieldset {
 }
 
 
-.title-wrapper {
+.title-group {
   margin-left: 32px;
   gap: 16px;
 }
@@ -856,7 +856,7 @@ fieldset {
   gap: 60px;
 }
 
-.card__status {
+.status__card {
   gap: 16px;
   align-items: flex-end;
 }
@@ -884,7 +884,7 @@ fieldset {
 
 
 
-.chevron-icon {
+.mission-card__toggle-icon {
   display: inline-block;
   transition: transform 0.3s ease;
 
@@ -947,7 +947,7 @@ fieldset {
 }
 
 
-.task-label {
+.list-item__label {
   gap: 16px;
   align-items: center;
 
@@ -955,7 +955,7 @@ fieldset {
 }
 
 
-.task-check {
+.list-item__checkbox {
   appearance: none;
   -webkit-appearance: none;
 
@@ -980,13 +980,13 @@ fieldset {
 
 
 /* Checkbox işaretlendiğinde kutu rengi */
-.task-check:checked {
+.list-item__checkbox:checked {
   background-color: #79949f;
   border-color: #79949f;
 }
 
 /* İşaretlendiğinde beliren TİK */
-.task-check:checked::after {
+.list-item__checkbox:checked::after {
   content: '';
   width: 4px;
   height: 9px;
@@ -1062,7 +1062,12 @@ fieldset {
   font-weight: 500;
 }
 
-
+.strategy__container {
+  display: flex;
+  max-width: 1100px;
+  margin: 40px;
+  gap: 30px;
+}
 
 .strategy-card {
   align-items: center;
@@ -1089,13 +1094,13 @@ fieldset {
   color: #e4e9ed;
 }
 
-.card-icon {
+.card__icon {
   padding: 10px;
   border: 1px solid #717c8457;
   border-radius: 50px;
 }
 
-.card-icon--active {
+.card__icon--active {
   background: radial-gradient(circle, rgba(118, 159, 157, 0.352) 0%, rgba(5, 5, 5, 0) 70%);
   box-shadow:
     0 0 20px 0 rgba(118, 159, 157, 0.5),
@@ -1113,7 +1118,7 @@ fieldset {
   line-height: 150%;
 }
 
-.card-badge {
+.card__badge {
   position: absolute;
   top: 0;
   left: 50%;
@@ -1130,13 +1135,13 @@ fieldset {
   color: #050505a4;
 }
 
-.card-status {
+.status__content {
   align-items: center;
   gap: 8px;
   transition: color 0.3s ease;
 }
 
-.status-dot {
+.status__dot {
   width: 12px;
   height: 12px;
   background-color: transparent;
@@ -1145,13 +1150,13 @@ fieldset {
   border-radius: 50%;
 }
 
-.status-dot--active {
+.status__dot--active {
   box-shadow: 0 0 10px 2px rgba(118, 159, 157, 0.6);
   border-color: #769f9d;
   background-color: #bed0cf;
 }
 
-.status-text {
+.status__text {
   font-size: 12px;
   font-weight: 700;
 }
@@ -1211,7 +1216,7 @@ fieldset {
   background-color: #48576367;
 }
 
-.btn__group {
+.button__container {
   gap: 8px;
   padding: 5px 12px;
   border-radius: 10px;
@@ -1253,7 +1258,7 @@ fieldset {
   border-radius: 24px;
 }
 
-.box__title {
+.empty-state__title {
   margin-top: 16px;
   font-size: 20px;
   font-weight: 800;
@@ -1287,52 +1292,10 @@ fieldset {
   color: #c9c3c38b;
 }
 
-.footer-right {
+.footer__info {
   display: flex;
   align-items: baseline;
   gap: 12px;
-}
-
-.hamburger-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  /* Çizgiler arası mesafe */
-  padding: 10px;
-}
-
-.hamburger-btn span {
-  display: block;
-  width: 30px;
-  height: 3px;
-  background-color: #333;
-  /* Çizgi rengi */
-  border-radius: 2px;
-  transition: all 0.3s ease-in-out;
-}
-
-.hamburger-btn.active span {
-  background-color: #ff4757;
-  /* İkonun rengini kırmızıya veya marka rengine çekebilirsin */
-}
-
-
-
-
-
-
-
-.strategy__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 600px;
-  margin: 20px;
-  gap: 20px;
 }
 
 
@@ -1344,11 +1307,4 @@ fieldset {
 
 @media all and (min-width: 640px) and (max-width: 1023.98px) {}
 
-@media all and (min-width: 1024px) {
-  .strategy__container {
-    flex-direction: row;
-    max-width: 1100px;
-    margin: 40px;
-    gap: 30px;
-  }
-}
+@media all and (min-width: 1024px) {}

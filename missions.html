@@ -41,9 +41,9 @@
       <main class="flex-row main__container align-baseline">
         <div class="flex-column mission__container">
           <div class="flex-row justify-space-between align-baseline">
-            <h1 class="mission__title">ATOMIC COMMAND CENTER</h1>
+            <h1 class="missions__title">ATOMIC COMMAND CENTER</h1>
 
-            <div class="flex-row btn__group">
+            <div class="flex-row button__container">
               <button class="btn btn--tertiary btn--active" id="activeButton">
                 Active
               </button>
@@ -69,22 +69,19 @@
                   alt="Add Icon"
                 />
               </span>
-              <span class="box__title" id="emptyStateTitle"
+              <span class="empty-state__title" id="emptyStateTitle"
                 >Ready to initiate your first mission?</span
               >
-              <span class="box__text"
-                >Click to break down your mission.</span
-              ></a
+              <span>Click to break down your mission.</span></a
             >
           </div>
 
-          <div id="statusMessage" class="status-message hidden">
+          <div class="status-message hidden" id="statusMessage">
             Mission completed successfully!
           </div>
 
           <div class="hidden" id="completedMissions">
             <h2>Completed Missions</h2>
-            <div class="flex-column" id="completedMissionCard"></div>
           </div>
         </div>
       </main>
@@ -92,10 +89,10 @@
     <footer class="footer">
       <a href="index.html">CORE</a>
       <span>© 2026, Pacepad. All rights reserved.</span>
-      <span class="footer-right">
+      <div class="footer__info">
         <a href="mailto:busra.kuscu@code2career.eu">Report</a>
         <p>• LOCAL DATA</p>
-      </span>
+      </div>
     </footer>
     <template id="missionCardTemplate">
       <div class="flex-column mission-card" id="missionCard">
@@ -107,30 +104,37 @@
               </div>
             </div>
 
-            <div class="flex-column title-wrapper">
-              <h3 class="mission-title"></h3>
+            <div class="flex-column title-group">
+              <h3 class="mission-card__title"></h3>
               <span class="mission-card__type"></span>
             </div>
           </div>
-          <span class="focus-badge hidden">FOCUS</span>
+          <span class="focus__badge hidden">FOCUS</span>
           <div class="flex-row mission-card__status">
-            <div class="flex-column card__status">
+            <div class="flex-column status__card">
               <span class="status__label">TIME REMAINING</span>
               <span class="status__time"></span>
             </div>
-            <span class="chevron-icon">▼</span>
+            <span
+              class="mission-card__toggle-icon"
+              aria-label="Expand or collapse mission details"
+              >▼</span
+            >
           </div>
         </div>
-
         <div class="flex-column mission-card__body hidden">
           <ul class="flex-column mission-card__list"></ul>
           <div class="flex-row card__ctas">
-            <button class="btn action__button update__button">UPDATE</button>
-            <button class="btn action__button complete-all__button">
+            <button type="button" class="btn action__button update__button">
+              UPDATE
+            </button>
+            <button
+              type="button"
+              class="btn action__button complete-all__button"
+            >
               MARK ALL AS COMPLETE
             </button>
-
-            <button class="btn action__button remove-card__button">
+            <button type="button" class="btn action__button remove__button">
               REMOVE
             </button>
           </div>
@@ -139,9 +143,9 @@
     </template>
     <template id="cardStepTemplate">
       <li class="flex-row card__list-item">
-        <label class="flex-row task-label">
-          <input type="checkbox" class="task-check" autocomplete="off" />
-          <span class="task-text"></span>
+        <label class="flex-row list-item__label">
+          <input type="checkbox" class="list-item__checkbox" />
+          <span class="list-item__text"></span>
         </label>
         <span class="list-item__time"></span>
       </li>

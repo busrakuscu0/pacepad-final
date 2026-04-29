@@ -19,7 +19,7 @@ const stepList = document.getElementById("stepList");
 const stepTemplate = document.getElementById("stepTemplate");
 const breakdownList = document.querySelector(".breakdown__list");
 const stagesHeader = document.getElementById("stagesHeader");
-const calibrationBox = document.getElementById("calibrationBox");
+const calibrationContainer = document.getElementById("calibrationContainer");
 const hourUpButton = document.getElementById("hourUpButton");
 const hourDownButton = document.getElementById("hourDownButton");
 const minuteUpButton = document.getElementById("minuteUpButton");
@@ -30,11 +30,6 @@ const timePickerButton = document.getElementById("timePickerButton");
 const errorMessage = document.getElementById("errorMessage");
 const allCloseButtons = document.querySelectorAll(".close__button");
 const mainInitiateLink = document.getElementById("mainInitiateLink");
-const navbar = document.querySelector("nav");
-const btn = document.getElementById("menuBtn");
-btn.addEventListener("click", () => {
-  btn.classList.toggle("hidden");
-});
 
 let targetButton = null;
 let currentHour = 0;
@@ -59,9 +54,9 @@ function toggleFocusMode() {
 
   if (newState) {
     toggleStatus.textContent = "ON";
-    focusToggleButton.classList.add("toggle-btn--active");
+    focusToggleButton.classList.add("toggle__button--active");
   } else {
-    focusToggleButton.classList.remove("toggle-btn--active");
+    focusToggleButton.classList.remove("toggle__button--active");
   }
 }
 
@@ -83,7 +78,7 @@ function timeSelection(e) {
 
     updateTimeDisplay();
 
-    calibrationBox.classList.remove("hidden");
+    calibrationContainer.classList.remove("hidden");
     formElement.classList.add("hidden");
   }
 }
@@ -115,7 +110,7 @@ function timePicker() {
     targetButton.textContent = finalTime;
   }
 
-  calibrationBox.classList.add("hidden");
+  calibrationContainer.classList.add("hidden");
   formElement.classList.remove("hidden");
 }
 
@@ -124,7 +119,7 @@ function closeBox() {
 
   if (parentBox) {
     parentBox.classList.add("hidden");
-    if (parentBox === calibrationBox) {
+    if (parentBox === calibrationContainer) {
       formElement.classList.remove("hidden");
     }
   }
@@ -394,7 +389,7 @@ function checkGeneralEmptyState() {
 }
 
 function updateProgress(cardElement) {
-  const cardCheckboxes = cardElement.querySelectorAll(".task-check");
+  const cardCheckboxes = cardElement.querySelectorAll(".list-item__checkbox");
   const totalTasks = cardCheckboxes.length;
 
   const completedTasks = Array.from(cardCheckboxes).filter(
@@ -471,9 +466,9 @@ function initFormPage() {
         const isFocus = missionToEdit.focusMode === true;
         focusToggleButton.setAttribute("aria-checked", isFocus);
         if (isFocus) {
-          focusToggleButton.classList.add("toggle-btn--active");
+          focusToggleButton.classList.add("toggle__button--active");
         } else {
-          focusToggleButton.classList.remove("toggle-btn--active");
+          focusToggleButton.classList.remove("toggle__button--active");
         }
       }
 
@@ -548,15 +543,15 @@ function createMissionCard(mission) {
   const cardClone = missionCardTemplate.content.cloneNode(true);
   const cardElement = cardClone.querySelector(".mission-card");
   const cardHeader = cardElement.querySelector(".mission-card__header");
-  const titleElement = cardElement.querySelector(".mission-title");
-  const focusBadge = cardElement.querySelector(".focus-badge");
-  const chevronIcon = cardElement.querySelector(".chevron-icon");
+  const titleElement = cardElement.querySelector(".mission-card__title");
+  const focusBadge = cardElement.querySelector(".focus__badge");
+  const toggleIcon = cardElement.querySelector(".mission-card__toggle-icon");
   const typeElement = cardElement.querySelector(".mission-card__type");
   const cardBody = cardElement.querySelector(".mission-card__body");
   const ulElement = cardElement.querySelector(".mission-card__list");
   const updateButton = cardElement.querySelector(".update__button");
   const completeAllButton = cardElement.querySelector(".complete-all__button");
-  const removeButton = cardElement.querySelector(".remove-card__button");
+  const removeButton = cardElement.querySelector(".remove__button");
 
   cardElement.id = `missionCard-${mission.id}`;
   titleElement.textContent = mission.title;
@@ -568,8 +563,8 @@ function createMissionCard(mission) {
 
   mission.steps.forEach((step) => {
     const stepClone = cardStepTemplate.content.cloneNode(true);
-    const stepCheckbox = stepClone.querySelector(".task-check");
-    const stepText = stepClone.querySelector(".task-text");
+    const stepCheckbox = stepClone.querySelector(".list-item__checkbox");
+    const stepText = stepClone.querySelector(".list-item__text");
     const stepTime = stepClone.querySelector(".list-item__time");
 
     stepText.textContent = step.name;
@@ -579,13 +574,13 @@ function createMissionCard(mission) {
     ulElement.appendChild(stepClone);
   });
 
-  const cardCheckboxes = cardElement.querySelectorAll(".task-check");
+  const cardCheckboxes = cardElement.querySelectorAll(".list-item__checkbox");
 
   updateCardContent(cardElement, mission);
   updateProgress(cardElement);
 
   cardHeader?.addEventListener("click", () => {
-    chevronIcon.classList.toggle("rotate");
+    toggleIcon.classList.toggle("rotate");
     cardBody.classList.toggle("hidden");
   });
 
@@ -713,6 +708,8 @@ async function fetchQuotes() {
     );
   }
 }
+
+// EVENT LISTENERS
 
 document.addEventListener("DOMContentLoaded", () => {
   const mainInitiateLink = document.getElementById("mainInitiateLink");

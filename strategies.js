@@ -3,16 +3,6 @@
 const strategyCards = document.querySelectorAll(".strategy-card");
 const savedIndex = localStorage.getItem("selectedCardIndex") || 0;
 
-document.addEventListener("DOMContentLoaded", () => {
-  const navbar = document.getElementById("navbar");
-  const btn = document.getElementById("menuBtn");
-  btn.addEventListener("click", () => {
-    btn.classList.toggle("active");
-
-    navbar.classList.remove("hidden");
-  });
-});
-
 function setCardState(selectedIndex) {
   strategyCards.forEach((card, i) => {
     const isActive = i == selectedIndex;
@@ -20,14 +10,14 @@ function setCardState(selectedIndex) {
     card.classList.toggle("card--active", isActive);
 
     card
-      .querySelector(".card-icon")
-      .classList.toggle("card-icon--active", isActive);
-    card.querySelector(".card-badge").classList.toggle("hidden", !isActive);
+      .querySelector(".card__icon")
+      .classList.toggle("card__icon--active", isActive);
+    card.querySelector(".card__badge").classList.toggle("hidden", !isActive);
     card
-      .querySelector(".status-dot")
-      .classList.toggle("status-dot--active", isActive);
+      .querySelector(".status__dot")
+      .classList.toggle("status__dot--active", isActive);
 
-    const statusText = card.querySelector(".status-text");
+    const statusText = card.querySelector(".status__text");
     if (statusText) {
       statusText.textContent = isActive ? "ACTIVE" : "ALTERNATIVE";
     }

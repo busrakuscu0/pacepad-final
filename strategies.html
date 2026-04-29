@@ -15,12 +15,7 @@
   <body>
     <div class="body-flex">
       <header>
-        <button class="hamburger-btn" id="menuBtn" aria-label="Menü">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <nav class="nav" id="navbar ">
+        <nav class="nav">
           <a href="index.html" class="nav__logo"
             ><img src="./assets/pacepad-logo.svg" alt="Pacepad Logo" />
           </a>
@@ -51,7 +46,7 @@
         <div class="flex-row strategy__container">
           <div class="flex-column strategy-card">
             <img
-              class="card-icon"
+              class="card__icon"
               src="./assets/icons/prioritizer-icon.svg"
               alt="The Prioritizer Icon"
             />
@@ -61,15 +56,15 @@
               moves the needle. Choose this if you feel overwhelmed and need to
               focus on true priorities.
             </p>
-            <div class="card-badge hidden">CURRENT SELECTION</div>
-            <div class="flex-row card-status">
-              <span class="status-dot"></span>
-              <span class="status-text">ALTERNATIVE</span>
+            <div class="card__badge hidden">CURRENT SELECTION</div>
+            <div class="flex-row status__content">
+              <span class="status__dot"></span>
+              <span class="status__text">ALTERNATIVE</span>
             </div>
           </div>
           <div class="flex-column strategy-card">
             <img
-              class="card-icon"
+              class="card__icon"
               src="./assets/icons/deep-focus-icon.svg"
               alt="Deep Focus Sprints Icon"
             />
@@ -79,15 +74,15 @@
               breaks. Choose this if you easily get distracted and want to build
               steady momentum.
             </p>
-            <div class="card-badge hidden">CURRENT SELECTION</div>
-            <div class="flex-row card-status">
-              <span class="status-dot"></span>
-              <span class="status-text">ALTERNATIVE</span>
+            <div class="card__badge hidden">CURRENT SELECTION</div>
+            <div class="flex-row card__status">
+              <span class="status__dot"></span>
+              <span class="status__text">ALTERNATIVE</span>
             </div>
           </div>
           <div class="flex-column strategy-card">
             <img
-              class="card-icon"
+              class="card__icon"
               src="./assets/icons/quick-wins-icon.svg"
               alt="Quick Wins Icon"
             />
@@ -97,15 +92,15 @@
               complete. Choose this if you feel stuck and need a fast way to
               clear your mental RAM.
             </p>
-            <div class="card-badge hidden">CURRENT SELECTION</div>
-            <div class="flex-row card-status">
-              <span class="status-dot"></span>
-              <span class="status-text">ALTERNATIVE</span>
+            <div class="card__badge hidden">CURRENT SELECTION</div>
+            <div class="flex-row card__status">
+              <span class="status__dot"></span>
+              <span class="status__text">ALTERNATIVE</span>
             </div>
           </div>
           <div class="flex-column strategy-card">
             <img
-              class="card-icon"
+              class="card__icon"
               src="./assets/icons/tunnel-vision-icon.svg"
               alt="Tunnel Vision Icon"
             />
@@ -115,10 +110,10 @@
               this if you are constantly multitasking and need pure,
               uninterrupted execution.
             </p>
-            <div class="card-badge hidden">CURRENT SELECTION</div>
-            <div class="flex-row card-status">
-              <span class="status-dot"></span>
-              <span class="status-text">ALTERNATIVE</span>
+            <div class="card__badge hidden">CURRENT SELECTION</div>
+            <div class="flex-row card__status">
+              <span class="status__dot"></span>
+              <span class="status__text">ALTERNATIVE</span>
             </div>
           </div>
         </div>
@@ -127,10 +122,10 @@
     <footer class="footer">
       <a href="index.html">CORE</a>
       <span>© 2026, Pacepad. All rights reserved.</span>
-      <span class="footer-right">
+      <div class="footer__info">
         <a href="mailto:busra.kuscu@code2career.eu">Report</a>
         <p>• LOCAL DATA</p>
-      </span>
+      </div>
     </footer>
 
     <script src="./strategies.js"></script>

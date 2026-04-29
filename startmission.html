@@ -26,7 +26,7 @@
             </li>
             <li class="nav__list-item">
               <img src="./assets/icons/mission-icon.svg" alt="Mission Icon" />
-              <a href="missions.html" class="list-item--active">MISSIONS</a>
+              <a href="missions.html">MISSIONS</a>
             </li>
             <li class="nav__list-item">
               <img src="./assets/icons/strategy-icon.svg" alt="Strategy Icon" />
@@ -45,8 +45,8 @@
           <fieldset class="flex-row form__header">
             <legend class="form__legend">MASTER OBJECTIVE</legend>
             <input
-              class="input-field"
               type="text"
+              class="form-title__input"
               placeholder="Identify main title for your mission"
               id="missionMainTitle"
               aria-describedby="titleError"
@@ -57,14 +57,14 @@
               <span class="toggle__label" id="toggleLabel">FOCUS MODE</span>
               <button
                 type="button"
-                id="focusToggleButton"
-                class="toggle-btn"
                 role="switch"
+                class="toggle__button"
+                id="focusToggleButton"
                 aria-checked="false"
-                aria-label="Toggle Focus Mode"
+                aria-label="Focus Mode Toggle"
                 aria-labelledby="toggleLabel"
               >
-                <span class="toggle-slider"></span>
+                <span class="toggle__slider"></span>
               </button>
               <span class="toggle__status" id="toggleStatus">ON</span>
             </div>
@@ -79,7 +79,7 @@
                   type="radio"
                   name="missionType"
                   value="DEEP-WORK"
-                  class="sr-only"
+                  class="mission-types__input"
                   aria-describedby="missionTypeError"
                 />
                 <span class="flex-column option__content">
@@ -93,7 +93,7 @@
                   type="radio"
                   name="missionType"
                   value="URGENT"
-                  class="sr-only"
+                  class="mission-types__input"
                   aria-describedby="missionTypeError"
                 />
                 <span class="flex-column option__content">
@@ -107,7 +107,7 @@
                   type="radio"
                   name="missionType"
                   value="ROUTINE"
-                  class="sr-only"
+                  class="mission-types__input"
                   aria-describedby="missionTypeError"
                 />
                 <span class="flex-column option__content">
@@ -121,7 +121,7 @@
                   type="radio"
                   name="missionType"
                   value="QUICK"
-                  class="sr-only"
+                  class="mission-types__input"
                   aria-describedby="missionTypeError"
                 />
 
@@ -140,19 +140,21 @@
           </p>
 
           <fieldset class="mt-60 mb-20" id="fieldsetContainer">
-            <div class="flex-row breakdown__header">
-              <legend class="form__legend">ATOMIC BREAKDOWN</legend>
-              <span class="form__legend" id="stagesHeader">STAGES 01—02</span>
-            </div>
+            <legend class="form__legend">
+              <div class="flex-row breakdown__header">
+                <span>ATOMIC BREAKDOWN</span>
+                <span id="stagesHeader"></span>
+              </div>
+            </legend>
 
             <div class="flex-column breakdown__list" id="stepList">
               <div class="flex-row breakdown__list-item">
-                <span class="list-item__number">01</span>
+                <span class="list-item__number"></span>
                 <input
                   type="text"
                   class="list-item__input"
                   placeholder="Define an atomic step..."
-                  aria-describedby="atomicStepsError"
+                  aria-describedby="stepsError"
                   autocomplete="off"
                 />
 
@@ -160,7 +162,7 @@
                   <button
                     type="button"
                     class="btn flex-row set-time__button"
-                    aria-describedby="atomicStepsError"
+                    aria-describedby="stepsError"
                   >
                     <img
                       src="assets/icons/schedule-icon.svg"
@@ -168,14 +170,16 @@
                     />
                     <span>SET TIME</span>
                   </button>
-                  <button class="btn delete__button">DELETE</button>
+                  <button type="button" class="btn delete__button">
+                    DELETE
+                  </button>
                 </div>
               </div>
 
               <button
-                id="addStepButton"
                 type="button"
                 class="flex-row breakdown__list-item btn add-step__button"
+                id="addStepButton"
               >
                 <img src="./assets/icons/add-icon.svg" />
                 ADD ATOMIC STEP
@@ -186,33 +190,61 @@
           <button type="submit" class="flex-row btn submit__button">
             <img
               src="./assets/icons/rocket_launch_24dp_313030_FILL1_wght400_GRAD0_opsz24.svg"
-              alt="Rocket Icon"
+              alt=""
             />
             INITIATE MISSION
           </button>
         </form>
         <div
           class="flex-row calibration__container hidden close-box"
-          id="calibrationBox"
+          id="calibrationContainer"
         >
           <div class="flex-column column__time" id="columnHour">
             <span class="column__label">HOUR</span>
-            <button class="calibration__button" id="hourUpButton">⌃</button>
+            <button
+              type="button"
+              class="calibration__button"
+              id="hourUpButton"
+              aria-label="Increase hour"
+            >
+              ⌃
+            </button>
 
             <div class="current__value active" id="displayHour"></div>
 
-            <button class="calibration__button" id="hourDownButton">⌄</button>
+            <button
+              type="button"
+              class="calibration__button"
+              id="hourDownButton"
+              aria-label="Decrease hour"
+            >
+              ⌄
+            </button>
           </div>
 
           <div class="time-separator">:</div>
 
           <div class="flex-column column__time" id="columnMinute">
             <span class="column__label">MINUTE</span>
-            <button class="calibration__button" id="minuteUpButton">⌃</button>
+            <button
+              type="button"
+              class="calibration__button"
+              id="minuteUpButton"
+              aria-label="Increase minute"
+            >
+              ⌃
+            </button>
 
             <div class="current__value active" id="displayMinute"></div>
 
-            <button class="calibration__button" id="minuteDownButton">⌄</button>
+            <button
+              type="button"
+              class="calibration__button"
+              id="minuteDownButton"
+              aria-label="Decrease minute"
+            >
+              ⌄
+            </button>
           </div>
 
           <button
@@ -224,19 +256,23 @@
           </button>
           <div class="error-message hidden close-box" id="errorMessage">
             <span id="errorText">Please enter a valid time.</span>
-            <button class="close__button">&times;</button>
+            <button type="button" class="close__button" aria-label="Close">
+              &times;
+            </button>
           </div>
-          <button class="close__button">&times;</button>
+          <button type="button" class="close__button" aria-label="Close">
+            &times;
+          </button>
         </div>
       </main>
     </div>
     <footer class="footer">
       <a href="index.html">CORE</a>
       <span>© 2026, Pacepad. All rights reserved.</span>
-      <span class="footer-right">
+      <div class="footer__info">
         <a href="mailto:busra.kuscu@code2career.eu">Report</a>
         <p>• LOCAL DATA</p>
-      </span>
+      </div>
     </footer>
     <template id="stepTemplate">
       <div class="flex-row breakdown__list-item close-box">
