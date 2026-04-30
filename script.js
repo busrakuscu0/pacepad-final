@@ -594,7 +594,7 @@ function createMissionCard(mission) {
 
   updateButton?.addEventListener("click", () => {
     localStorage.setItem("editingMissionId", mission.id);
-    window.location.href = "startmission.html";
+    window.location.href = "newmission.html";
   });
 
   completeAllButton?.addEventListener("click", () => {

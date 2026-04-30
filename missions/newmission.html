@@ -10,30 +10,33 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
-    <div class="body-flex">
+    <div class="flex-row">
       <header>
-        <nav class="nav">
-          <a href="index.html" class="nav__logo"
-            ><img src="./assets/pacepad-logo.svg" alt="Pacepad Logo" />
+        <nav class="flex-column nav justify-space-between">
+          <a href="../index.html" class="nav__logo"
+            ><img src="../assets/pacepad-logo.svg" alt="Pacepad Logo" />
           </a>
-          <ul class="nav__list">
-            <li class="nav__list-item">
-              <img src="./assets/icons/core-icon.svg" alt="Core Icon" />
-              <a href="index.html">CORE</a>
+          <ul class="flex-column nav__list">
+            <li class="flex-row nav__list-item align-center">
+              <img src="../assets/icons/core-icon.svg" alt="Core Icon" />
+              <a href="../index.html">CORE</a>
             </li>
-            <li class="nav__list-item">
+            <li class="flex-row nav__list-item align-center">
               <img src="./assets/icons/mission-icon.svg" alt="Mission Icon" />
-              <a href="missions.html">MISSIONS</a>
+              <a href="./missions.html">MISSIONS</a>
             </li>
-            <li class="nav__list-item">
-              <img src="./assets/icons/strategy-icon.svg" alt="Strategy Icon" />
-              <a href="./strategies.html">STRATEGIES</a>
+            <li class="flex-row nav__list-item align-center">
+              <img
+                src="../assets/icons/strategy-icon.svg"
+                alt="Strategy Icon"
+              />
+              <a href="../strategies/strategies.html">STRATEGIES</a>
             </li>
           </ul>
-          <a href="startmission.html" class="btn btn--primary"
+          <a href="./newmission.html" class="btn btn--primary br-10 text-center"
             >INITIATE MISSION</a
           >
         </nav>
@@ -42,18 +45,18 @@
         <h1 class="main__title">ARCHITECT YOUR MISSION</h1>
 
         <form method="get" class="flex-column form__container" id="formElement">
-          <fieldset class="flex-row form__header">
+          <fieldset class="flex-row form__header align-center">
             <legend class="form__legend">MASTER OBJECTIVE</legend>
             <input
               type="text"
-              class="form-title__input"
+              class="form-title__input br-10 border-none"
               placeholder="Identify main title for your mission"
               id="missionMainTitle"
               aria-describedby="titleError"
               autocomplete="off"
             />
 
-            <div class="flex-row toggle__container">
+            <div class="flex-row toggle__container align-center br-10">
               <span class="toggle__label" id="toggleLabel">FOCUS MODE</span>
               <button
                 type="button"
@@ -74,7 +77,7 @@
           <fieldset class="mt-60">
             <legend class="form__legend">MISSION TYPE</legend>
             <div class="mission-types__container">
-              <label class="mission-types__option">
+              <label class="mission-types__option br-10">
                 <input
                   type="radio"
                   name="missionType"
@@ -88,7 +91,7 @@
                 </span>
               </label>
 
-              <label class="mission-types__option">
+              <label class="mission-types__option br-10">
                 <input
                   type="radio"
                   name="missionType"
@@ -102,7 +105,7 @@
                 </span>
               </label>
 
-              <label class="mission-types__option">
+              <label class="mission-types__option br-10">
                 <input
                   type="radio"
                   name="missionType"
@@ -116,7 +119,7 @@
                 </span>
               </label>
 
-              <label class="mission-types__option">
+              <label class="mission-types__option br-10">
                 <input
                   type="radio"
                   name="missionType"
@@ -133,26 +136,25 @@
             </div>
             <p class="form__error" id="missionTypeError"></p>
           </fieldset>
-          <p class="form__context mt-60">
+          <p class="form__context text-center mt-60">
             <b>Clarity is the fuel of focus.</b> <br />
             Break the monolith into atomic steps to reduce cognitive friction
             and keep your momentum alive.
           </p>
-
           <fieldset class="mt-60 mb-20" id="fieldsetContainer">
             <legend class="form__legend">
-              <div class="flex-row breakdown__header">
+              <div class="flex-row justfy-space-between align-baseline">
                 <span>ATOMIC BREAKDOWN</span>
                 <span id="stagesHeader"></span>
               </div>
             </legend>
 
             <div class="flex-column breakdown__list" id="stepList">
-              <div class="flex-row breakdown__list-item">
+              <div class="flex-row breakdown__list-item align-center br-10">
                 <span class="list-item__number"></span>
                 <input
                   type="text"
-                  class="list-item__input"
+                  class="list-item__input border-none"
                   placeholder="Define an atomic step..."
                   aria-describedby="stepsError"
                   autocomplete="off"
@@ -161,16 +163,19 @@
                 <div class="flex-row list-item__actions">
                   <button
                     type="button"
-                    class="btn flex-row set-time__button"
+                    class="btn flex-row set-time__button align-center br-10 text-center"
                     aria-describedby="stepsError"
                   >
                     <img
-                      src="assets/icons/schedule-icon.svg"
+                      src="../assets/icons/schedule-icon.svg"
                       alt="Schedule Icon"
                     />
                     <span>SET TIME</span>
                   </button>
-                  <button type="button" class="btn delete__button">
+                  <button
+                    type="button"
+                    class="btn delete__button br-10 text-center"
+                  >
                     DELETE
                   </button>
                 </div>
@@ -178,32 +183,32 @@
 
               <button
                 type="button"
-                class="flex-row breakdown__list-item btn add-step__button"
+                class="flex-row breakdown__list-item align-center br-10 text-center btn add-step__button"
                 id="addStepButton"
               >
-                <img src="./assets/icons/add-icon.svg" />
+                <img src="../assets/icons/add-icon.svg" />
                 ADD ATOMIC STEP
               </button>
               <p class="form__error" id="stepsError"></p>
             </div>
           </fieldset>
-          <button type="submit" class="flex-row btn submit__button">
-            <img
-              src="./assets/icons/rocket_launch_24dp_313030_FILL1_wght400_GRAD0_opsz24.svg"
-              alt=""
-            />
+          <button
+            type="submit"
+            class="flex-row btn submit__button align-center br-10 text-center"
+          >
+            <img src="../assets/icons/rocket-icon.svg" alt="" />
             INITIATE MISSION
           </button>
         </form>
         <div
-          class="flex-row calibration__container hidden close-box"
+          class="flex-row calibration__container align-center hidden close-box"
           id="calibrationContainer"
         >
-          <div class="flex-column column__time" id="columnHour">
+          <div class="flex-column column__time align-center" id="columnHour">
             <span class="column__label">HOUR</span>
             <button
               type="button"
-              class="calibration__button"
+              class="calibration__button border-none"
               id="hourUpButton"
               aria-label="Increase hour"
             >
@@ -214,7 +219,7 @@
 
             <button
               type="button"
-              class="calibration__button"
+              class="calibration__button border-none"
               id="hourDownButton"
               aria-label="Decrease hour"
             >
@@ -224,11 +229,11 @@
 
           <div class="time-separator">:</div>
 
-          <div class="flex-column column__time" id="columnMinute">
+          <div class="flex-column column__time align-center" id="columnMinute">
             <span class="column__label">MINUTE</span>
             <button
               type="button"
-              class="calibration__button"
+              class="calibration__button border-none"
               id="minuteUpButton"
               aria-label="Increase minute"
             >
@@ -239,7 +244,7 @@
 
             <button
               type="button"
-              class="calibration__button"
+              class="calibration__button border-none"
               id="minuteDownButton"
               aria-label="Decrease minute"
             >
@@ -254,7 +259,7 @@
           >
             SET TIME
           </button>
-          <div class="error-message hidden close-box" id="errorMessage">
+          <div class="error-message br-10 hidden close-box" id="errorMessage">
             <span id="errorText">Please enter a valid time.</span>
             <button type="button" class="close__button" aria-label="Close">
               &times;
@@ -266,34 +271,37 @@
         </div>
       </main>
     </div>
-    <footer class="footer">
-      <a href="index.html">CORE</a>
+    <footer class="flex-row footer align-baseline">
+      <a href="../index.html">CORE</a>
       <span>© 2026, Pacepad. All rights reserved.</span>
-      <div class="footer__info">
+      <div class="flex-row footer__info align-baseline">
         <a href="mailto:busra.kuscu@code2career.eu">Report</a>
         <p>• LOCAL DATA</p>
       </div>
     </footer>
     <template id="stepTemplate">
-      <div class="flex-row breakdown__list-item close-box">
+      <div class="flex-row breakdown__list-item align-center br-10 close-box">
         <span class="list-item__number">00</span>
 
         <input
           type="text"
-          class="list-item__input"
+          class="list-item__input border-none"
           placeholder="Define an atomic step..."
           autocomplete="off"
         />
 
         <div class="flex-row list-item__actions">
-          <button type="button" class="btn flex-row set-time__button">
-            <img src="assets/icons/schedule-icon.svg" alt="Schedule Icon" />
+          <button
+            type="button"
+            class="btn flex-row set-time__button align-center br-10 text-center"
+          >
+            <img src="../assets/icons/schedule-icon.svg" alt="Schedule Icon" />
             <span>SET TIME</span>
           </button>
-          <button class="btn delete__button">DELETE</button>
+          <button class="btn delete__button br-10 text-center">DELETE</button>
         </div>
       </div>
     </template>
-    <script src="./missions.js"></script>
+    <script src="../script.js"></script>
   </body>
 </html>
