@@ -39,6 +39,29 @@ let formCorrect = true;
 let quotesData = [];
 let currentIndex = 0;
 
+document.addEventListener("DOMContentLoaded", () => {
+  // Sizin belirlediğiniz YENİ ID'leri buraya yazdık:
+  const hamburgerBtn = document.getElementById("hamburgerButton");
+  const navContent = document.getElementById("navListContainer");
+  const dashboardButton = document.getElementById("dashboardButton");
+  const dashboardContainer = document.getElementById("dashboardContainer");
+  const workspaceContainer = document.getElementById("workspaceContainer");
+  if (hamburgerBtn) {
+    dashboardButton?.addEventListener("click", () => {
+      dashboardContainer.classList.toggle("hidden");
+      workspaceContainer.classList.toggle("hidden");
+    });
+  }
+
+  if (hamburgerBtn && navContent) {
+    hamburgerBtn.addEventListener("click", () => {
+      navContent.classList.toggle("nav__container--open");
+    });
+  } else {
+    console.log("HATA: Elementler bulunamadı. ID'leri kontrol edin.");
+  }
+});
+
 // FUNCTIONS
 
 const formatNumber = (num) => (num < 10 ? "0" + num : num);
