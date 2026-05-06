@@ -51,7 +51,7 @@ function showDashboard() {
 
 const formatNumber = (num) => (num < 10 ? "0" + num : num);
 const calibrateTime = (value, step, max) => (value + step + max) % max;
-const updateInterval = 30 * 60 * 1000;
+const updateInterval = 60 * 60 * 1000;
 
 function toggleFocusMode() {
   const isChecked = focusToggleButton.getAttribute("aria-checked") === "true";
@@ -733,6 +733,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const dashboardContainer = document.getElementById("dashboardContainer");
   const workspaceContainer = document.getElementById("workspaceContainer");
 
+  hamburgerButton?.addEventListener("click", () => {
+    navListContainer.classList.toggle("nav__container--open");
+  });
+
+  dashboardButton?.addEventListener("click", showDashboard);
+
+  if (window.location.hash === "#dashboard") {
+    showDashboard();
+  }
+
   if (mainInitiateLink) {
     fetchQuotes();
     setInterval(cycleQuote, updateInterval);
@@ -753,16 +763,6 @@ document.addEventListener("DOMContentLoaded", () => {
     showStatusMessage("Mission updated successfully!");
   } else if (urlParams.includes("created=true")) {
     showStatusMessage("New mission initiated!");
-  }
-
-  hamburgerButton?.addEventListener("click", () => {
-    navListContainer.classList.toggle("nav__container--open");
-  });
-
-  dashboardButton?.addEventListener("click", showDashboard);
-
-  if (window.location.hash === "#dashboard") {
-    showDashboard();
   }
 });
 

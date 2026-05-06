@@ -18,7 +18,6 @@
   --text-4xl: 2.5rem;
   --text-5xl: 3rem;
   --text-6xl: 3.5rem;
-
 }
 
 body {
@@ -131,7 +130,6 @@ fieldset {
   position: relative;
   width: 100%;
   padding: 16px;
-
 }
 
 .nav__header {
@@ -368,8 +366,8 @@ fieldset {
 }
 
 .progress-circle--sm {
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
 }
 
 .inner-circle {
@@ -456,15 +454,16 @@ fieldset {
 }
 
 .mission-card {
-  gap: 60px;
+  gap: 20px;
   justify-content: baseline;
   width: 100%;
-  margin-top: 40px;
-  padding: 40px;
+  margin-top: 16px;
+  padding: 16px;
   border: 1px solid #0a0c1072;
   border-left: 4px solid #134b4bb2;
   border-radius: 20px;
   background-color: #32343624;
+  font-size: var(--text-xs);
 }
 
 .mission-card:active {
@@ -472,20 +471,23 @@ fieldset {
 }
 
 .mission-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   align-items: flex-start;
   width: 100%;
   cursor: pointer;
 }
 
 .title-group {
-  gap: 16px;
-  margin-left: 32px;
+  gap: 8px;
+  margin-left: 20px;
 }
 
 .mission-card__title {
   flex: 1;
   min-width: 0;
-  margin-right: 20px;
+  margin-right: 12px;
   text-transform: uppercase;
   word-wrap: break-word;
   word-break: break-all;
@@ -493,7 +495,7 @@ fieldset {
 
 .mission-card__type {
   max-width: fit-content;
-  padding: 2px 8px;
+  padding: 2px 4px;
   font-weight: 700;
   font-size: var(--text-xs);
   border: 0.5px solid #3362835f;
@@ -504,9 +506,8 @@ fieldset {
 
 .focus__badge {
   flex-shrink: 0;
-  width: 90px;
-  margin-right: 20px;
-  margin-left: auto;
+  width: 60px;
+  margin-left: 56px;
   padding: 4px 12px;
   font-weight: 700;
   font-size: var(--text-xs);
@@ -515,12 +516,12 @@ fieldset {
 }
 
 .mission-card__status {
-  gap: 60px;
-  align-items: flex-start;
+  gap: 16px;
+  align-self: flex-end;
 }
 
 .status__card {
-  gap: 16px;
+  gap: 8px;
   align-items: flex-end;
 }
 
@@ -531,14 +532,13 @@ fieldset {
 
 .status__time {
   flex-shrink: 0;
-  width: 120px;
+  width: 60px;
   font-weight: 700;
   text-align: right;
 }
 
 .mission-card__toggle-icon {
-  display: inline-block;
-  transition: transform 0.3s ease;
+  display: none
 }
 
 .rotate {
@@ -550,25 +550,30 @@ fieldset {
 }
 
 .mission-card__body {
-  gap: 40px;
+  gap: 20px;
   width: 100%;
 }
 
 .mission-card__list {
-  gap: 16px;
+  gap: 8px;
+  flex: 1;
+  margin-right: 12px;
   justify-content: baseline;
   font-size: var(--text-sm);
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .card__ctas {
-  gap: 12px;
-  align-items: flex-end;
-  justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: baseline;
 }
 
 .action__button {
   max-width: fit-content;
-  padding: 12px;
+  padding: 8px;
   background: none;
   color: #c3d0d5a7;
 }
@@ -579,12 +584,13 @@ fieldset {
 
 .card__list-item {
   width: 100%;
-  max-width: 1000px;
-  padding: 16px;
+  max-width: 400px;
+  padding: 8px;
+  font-size: var(--text-xs);
 }
 
 .list-item__label {
-  gap: 16px;
+  gap: 8px;
   cursor: pointer;
 }
 
@@ -593,8 +599,8 @@ fieldset {
   -webkit-appearance: none;
   flex-shrink: 0;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  width: 12px;
+  height: 12px;
   margin: 0;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -611,21 +617,21 @@ fieldset {
 .list-item__checkbox:checked::after {
   content: '';
   width: 4px;
-  height: 9px;
+  height: 8px;
   margin-bottom: 2px;
-  transform: rotate(45deg);
-  border-width: 0 2px 2px 0;
   border: solid #0d1114;
+  border-width: 0 2px 2px 0;
+  transform: rotate(40deg);
 }
 
 .list-item__time {
   min-width: 120px;
-  margin-right: 20px;
   padding: 12px 24px;
   text-transform: uppercase;
   border-radius: 10px;
   color: #f0f1f2;
   background: #292d2e5f;
+  font-size: var(--text-xs);
 }
 
 .mission__container {
@@ -967,7 +973,6 @@ fieldset {
   background-color: #b6babc32;
 }
 
-
 .close__button {
   position: absolute;
   top: 12px;
@@ -1153,6 +1158,7 @@ fieldset {
   display: none;
 }
 
+
 @media all and (min-width: 640px) and (max-width: 1023.98px) {
 
   h2 {
@@ -1182,7 +1188,7 @@ fieldset {
   .main__container {
     gap: 30px;
     max-width: 700px;
-    margin: 0 auto
+    margin: 16px 40px;
   }
 
   .main__title {
@@ -1258,8 +1264,8 @@ fieldset {
   }
 
   .progress-circle--sm {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
   }
 
   .inner-circle {
@@ -1302,6 +1308,100 @@ fieldset {
   }
 
   .indicator__text {
+    font-size: var(--text-sm);
+  }
+
+  .mission-card {
+    gap: 40px;
+    margin-top: 20px;
+    padding: 20px;
+    font-size: var(--text-sm);
+    max-width: 900px;
+  }
+
+  .mission-card__header {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .title-group {
+    gap: 12px;
+    margin-left: 24px;
+  }
+
+  .mission-card__title {
+    margin-right: 16px;
+  }
+
+  .focus__badge {
+    width: 90px;
+    margin-right: 20px;
+    margin-left: auto;
+    padding: 4px 12px;
+  }
+
+  .mission-card__status {
+    gap: 32px;
+    align-self: flex-start;
+  }
+
+  .status__card {
+    gap: 12px;
+  }
+
+  .status__time {
+    width: 90px;
+  }
+
+  .mission-card__toggle-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .mission-card__body {
+    gap: 32px;
+  }
+
+  .mission-card__list {
+    gap: 12px;
+    margin-right: 16px;
+  }
+
+  .card__ctas {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .action__button {
+    padding: 12px;
+  }
+
+  .card__list-item {
+    max-width: 900px;
+    font-size: var(--text-sm);
+  }
+
+  .list-item__label {
+    gap: 12px;
+  }
+
+  .list-item__checkbox {
+    width: 16px;
+    height: 16px;
+  }
+
+  .list-item__checkbox:checked::after {
+    width: 4px;
+    height: 10px;
+  }
+
+  .list-item__time {
+    min-width: 90px;
+    margin: 16px;
+    padding: 8px 16px;
     font-size: var(--text-sm);
   }
 
@@ -1428,8 +1528,8 @@ fieldset {
 
   .mission__container {
     gap: 16px;
-    margin: 32px;
-    max-width: 600px;
+    margin: 24px;
+    max-width: 900px;
   }
 
   .missions__title {
@@ -1437,25 +1537,11 @@ fieldset {
     letter-spacing: 0.2rem;
   }
 
-
   .status-message {
     bottom: 60px;
     right: 20px;
     padding: 16px 24px;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   .strategy__container {
     display: grid;
@@ -1473,7 +1559,6 @@ fieldset {
   .card__text {
     font-size: var(--text-sm);
   }
-
 
   .btn--primary {
     padding: 12px 32px;
@@ -1502,6 +1587,7 @@ fieldset {
     margin-top: 16px;
   }
 }
+
 
 @media all and (min-width: 1024px) {
 
@@ -1571,13 +1657,15 @@ fieldset {
 
   .main__container {
     justify-content: space-between;
-    gap: 60px;
+    gap: 40px;
     max-width: 1100px;
-    margin: 50px 60px;
+    margin: 20px 60px;
   }
 
   .main__title {
     font-size: var(--text-2xl);
+    margin-top: 40px;
+    margin-bottom: 12px;
   }
 
   .workspace {
@@ -1657,6 +1745,11 @@ fieldset {
     height: 200px;
   }
 
+  .progress-circle--sm {
+    width: 80px;
+    height: 80px;
+  }
+
   .inner-circle {
     width: calc(100% - 8px);
     height: calc(100% - 8px);
@@ -1698,6 +1791,105 @@ fieldset {
 
   .indicator__text {
     font-size: var(--text-sm);
+  }
+
+  .mission-card {
+    gap: 60px;
+    margin-top: 40px;
+    padding: 40px;
+    font-size: var(--text-md);
+    max-width: 1100px;
+  }
+
+  .mission-card__header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .title-group {
+    gap: 16px;
+    margin-left: 32px;
+  }
+
+  .mission-card__title {
+    margin-right: 16px;
+  }
+
+  .mission-card__type {
+    padding: 2px 8px;
+  }
+
+  .focus__badge {
+    width: 90px;
+    margin-right: 20px;
+    margin-left: auto;
+    padding: 4px 12px;
+  }
+
+  .mission-card__status {
+    gap: 40px;
+    align-self: flex-start;
+  }
+
+  .status__card {
+    gap: 16px;
+  }
+
+  .status__time {
+    width: 120px;
+  }
+
+  .mission-card__toggle-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .mission-card__body {
+    gap: 40px;
+  }
+
+  .mission-card__list {
+    gap: 16px;
+    margin-right: 20px;
+  }
+
+  .card__ctas {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .action__button {
+    padding: 12px;
+  }
+
+  .card__list-item {
+    max-width: 1100px;
+    font-size: var(--text-md);
+  }
+
+  .list-item__label {
+    gap: 16px;
+  }
+
+  .list-item__checkbox {
+    width: 20px;
+    height: 20px;
+  }
+
+  .list-item__checkbox:checked::after {
+    width: 4px;
+    height: 10px;
+  }
+
+  .list-item__time {
+    min-width: 120px;
+    margin: 20px;
+    padding: 12px 24px;
+    font-size: var(--text-md);
   }
 
   .form__container {
@@ -1833,7 +2025,7 @@ fieldset {
   }
 
   .missions__title {
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
     letter-spacing: 0.2rem;
   }
 
@@ -1842,30 +2034,6 @@ fieldset {
     right: 20px;
     padding: 16px 24px;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   .strategy__container {
     display: flex;
@@ -1882,7 +2050,6 @@ fieldset {
     font-size: var(--text-md);
     line-height: 150%;
   }
-
 
   .btn--primary {
     padding: 16px 36px;

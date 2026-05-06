@@ -52,9 +52,7 @@
                   src="../assets/icons/mission-icon.svg"
                   alt="Mission Icon"
                 />
-                <a href="./missions/missions.html" class="list-item--active"
-                  >MISSIONS</a
-                >
+                <a href="./missions.html" class="list-item--active">MISSIONS</a>
               </li>
               <li class="flex-row nav__list-item align-center">
                 <img
@@ -65,7 +63,7 @@
               </li>
             </ul>
             <a
-              href="./missions/newmission.html"
+              href="./newmission.html"
               class="btn btn--primary br-10 text-center"
               >INITIATE MISSION</a
             >
@@ -133,8 +131,8 @@
     </footer>
     <template id="missionCardTemplate">
       <div class="flex-column mission-card align-center" id="missionCard">
-        <div class="flex-row mission-card__header justify-space-between">
-          <div class="flex-row">
+        <div class="mission-card__header">
+          <div class="flex-row header__title">
             <div
               class="flex-row progress-circle align-center progress-circle--sm"
             >
@@ -149,6 +147,7 @@
             </div>
           </div>
           <span class="focus__badge br-10 text-center hidden">FOCUS</span>
+
           <div class="flex-row mission-card__status">
             <div class="flex-column status__card">
               <span class="status__label">TIME REMAINING</span>

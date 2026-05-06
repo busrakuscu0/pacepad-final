@@ -5,6 +5,8 @@ const navListContainer = document.getElementById("navListContainer");
 const strategyCards = document.querySelectorAll(".strategy-card");
 const savedIndex = localStorage.getItem("selectedCardIndex") || 0;
 
+// FUNCTIONS
+
 function setCardState(selectedIndex) {
   strategyCards.forEach((card, i) => {
     const isActive = i == selectedIndex;
@@ -35,6 +37,8 @@ function setCardState(selectedIndex) {
 }
 
 setCardState(savedIndex);
+
+// EVENT LISTENERS
 
 hamburgerButton?.addEventListener("click", () => {
   navListContainer.classList.toggle("nav__container--open");
