@@ -1,5 +1,7 @@
 // VARIABLES
 
+const hamburgerButton = document.getElementById("hamburgerButton");
+const navListContainer = document.getElementById("navListContainer");
 const strategyCards = document.querySelectorAll(".strategy-card");
 const savedIndex = localStorage.getItem("selectedCardIndex") || 0;
 
@@ -33,6 +35,10 @@ function setCardState(selectedIndex) {
 }
 
 setCardState(savedIndex);
+
+hamburgerButton?.addEventListener("click", () => {
+  navListContainer.classList.toggle("nav__container--open");
+});
 
 strategyCards.forEach((card, index) => {
   card.addEventListener("click", () => {

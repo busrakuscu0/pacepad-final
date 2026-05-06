@@ -13,35 +13,66 @@
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
-    <div class="flex-row">
+    <div class="main-layout">
       <header>
-        <nav class="flex-column nav justify-space-between">
-          <a href="../index.html" class="nav__logo"
+        <nav class="nav">
+          <div class="nav__header">
+            <button
+              class="flex-column hamburger"
+              id="hamburgerButton"
+              aria-label="Toggle menu"
+            >
+              <span class="hamburger__line"></span>
+              <span class="hamburger__line"></span>
+              <span class="hamburger__line"></span>
+            </button>
+            <a href="../index.html" class="nav__logo--mobile"
+              ><img src="../assets/pacepad-logo.svg" alt="Pacepad Logo" />
+            </a>
+            <a
+              href="../index.html#dashboard"
+              class="btn btn--primary br-10 dashboard__button"
+              id="dashboardButton"
+            >
+              Dashboard
+            </a>
+          </div>
+          <a href="../index.html" class="nav__logo--desktop"
             ><img src="../assets/pacepad-logo.svg" alt="Pacepad Logo" />
           </a>
-          <ul class="flex-column nav__list">
-            <li class="flex-row nav__list-item align-center">
-              <img src="../assets/icons/core-icon.svg" alt="Core Icon" />
-              <a href="../index.html">CORE</a>
-            </li>
-            <li class="flex-row nav__list-item align-center">
-              <img src="../assets/icons/mission-icon.svg" alt="Mission Icon" />
-              <a href="./missions.html" class="list-item--active">MISSIONS</a>
-            </li>
-            <li class="flex-row nav__list-item align-center">
-              <img
-                src="../assets/icons/strategy-icon.svg"
-                alt="Strategy Icon"
-              />
-              <a href="../strategies/strategies.html">STRATEGIES</a>
-            </li>
-          </ul>
-          <a href="./newmission.html" class="btn btn--primary br-10 text-center"
-            >INITIATE MISSION</a
-          >
+
+          <div class="flex-column nav__container" id="navListContainer">
+            <ul class="flex-column nav__list">
+              <li class="flex-row nav__list-item align-center">
+                <img src="../assets/icons/core-icon.svg" alt="Core Icon" />
+                <a href="../index.html">CORE</a>
+              </li>
+              <li class="flex-row nav__list-item align-center">
+                <img
+                  src="../assets/icons/mission-icon.svg"
+                  alt="Mission Icon"
+                />
+                <a href="./missions/missions.html" class="list-item--active"
+                  >MISSIONS</a
+                >
+              </li>
+              <li class="flex-row nav__list-item align-center">
+                <img
+                  src="../assets/icons/strategy-icon.svg"
+                  alt="Strategy Icon"
+                />
+                <a href="../strategies/strategies.html">STRATEGIES</a>
+              </li>
+            </ul>
+            <a
+              href="./missions/newmission.html"
+              class="btn btn--primary br-10 text-center"
+              >INITIATE MISSION</a
+            >
+          </div>
         </nav>
       </header>
-      <main class="flex-row main__container align-baseline">
+      <main class="flex-row main__container">
         <div class="flex-column mission__container">
           <div class="flex-row justify-space-between align-baseline">
             <h1 class="missions__title">ATOMIC COMMAND CENTER</h1>
@@ -68,7 +99,7 @@
             </div>
             <a
               href="./newmission.html"
-              class="flex-column empty-state align-center"
+              class="flex-column empty-state"
               id="emptyState"
             >
               <span>
@@ -95,13 +126,10 @@
         </div>
       </main>
     </div>
-    <footer class="flex-row footer align-baseline">
-      <a href="../index.html">CORE</a>
-      <span>© 2026, Pacepad. All rights reserved.</span>
-      <div class="flex-row footer__info align-baseline">
-        <a href="mailto:busra.kuscu@code2career.eu">Report</a>
-        <p>• LOCAL DATA</p>
-      </div>
+    <footer class="footer">
+      <span>© 2026, Pacepad</span>
+      <a href="mailto:busra.kuscu@code2career.eu">Help & Support</a>
+      <span>🟢 All data saved locally</span>
     </footer>
     <template id="missionCardTemplate">
       <div class="flex-column mission-card align-center" id="missionCard">

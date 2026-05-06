@@ -1,5 +1,8 @@
 // VARIABLES
 
+const dashboardButton = document.getElementById("dashboardButton");
+const dashboardContainer = document.getElementById("dashboardContainer");
+const workspaceContainer = document.getElementById("workspaceContainer");
 const activeButton = document.getElementById("activeButton");
 const completedButton = document.getElementById("completedButton");
 const activeMissions = document.getElementById("activeMissions");
@@ -39,34 +42,16 @@ let formCorrect = true;
 let quotesData = [];
 let currentIndex = 0;
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Sizin belirlediğiniz YENİ ID'leri buraya yazdık:
-  const hamburgerBtn = document.getElementById("hamburgerButton");
-  const navContent = document.getElementById("navListContainer");
-  const dashboardButton = document.getElementById("dashboardButton");
-  const dashboardContainer = document.getElementById("dashboardContainer");
-  const workspaceContainer = document.getElementById("workspaceContainer");
-  if (hamburgerBtn) {
-    dashboardButton?.addEventListener("click", () => {
-      dashboardContainer.classList.toggle("hidden");
-      workspaceContainer.classList.toggle("hidden");
-    });
-  }
-
-  if (hamburgerBtn && navContent) {
-    hamburgerBtn.addEventListener("click", () => {
-      navContent.classList.toggle("nav__container--open");
-    });
-  } else {
-    console.log("HATA: Elementler bulunamadı. ID'leri kontrol edin.");
-  }
-});
-
 // FUNCTIONS
+
+function showDashboard() {
+  dashboardContainer.classList.remove("hidden");
+  workspaceContainer.classList.add("hidden");
+}
 
 const formatNumber = (num) => (num < 10 ? "0" + num : num);
 const calibrateTime = (value, step, max) => (value + step + max) % max;
-const updateInterval = 5 * 60 * 1000;
+const updateInterval = 30 * 60 * 1000;
 
 function toggleFocusMode() {
   const isChecked = focusToggleButton.getAttribute("aria-checked") === "true";
@@ -742,6 +727,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const isMissionsPage = activeMissions;
   const isFormPage = missionMainTitle;
   const urlParams = window.location.search;
+  const hamburgerButton = document.getElementById("hamburgerButton");
+  const navListContainer = document.getElementById("navListContainer");
+  const dashboardButton = document.getElementById("dashboardButton");
+  const dashboardContainer = document.getElementById("dashboardContainer");
+  const workspaceContainer = document.getElementById("workspaceContainer");
 
   if (mainInitiateLink) {
     fetchQuotes();
@@ -763,6 +753,16 @@ document.addEventListener("DOMContentLoaded", () => {
     showStatusMessage("Mission updated successfully!");
   } else if (urlParams.includes("created=true")) {
     showStatusMessage("New mission initiated!");
+  }
+
+  hamburgerButton?.addEventListener("click", () => {
+    navListContainer.classList.toggle("nav__container--open");
+  });
+
+  dashboardButton?.addEventListener("click", showDashboard);
+
+  if (window.location.hash === "#dashboard") {
+    showDashboard();
   }
 });
 

@@ -162,6 +162,13 @@ fieldset {
   height: auto;
 }
 
+.dashboard__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
 .nav__logo--desktop {
   display: none;
 }
@@ -223,6 +230,7 @@ fieldset {
 }
 
 .workspace {
+  margin: 0 auto;
   gap: 12px;
   width: 100%;
   max-width: 300px;
@@ -266,6 +274,7 @@ fieldset {
   justify-content: center;
   align-items: center;
   max-width: fit-content;
+  text-align: center;
   margin: 0 auto;
   margin-top: 60px;
   padding: 24px 40px;
@@ -322,8 +331,9 @@ fieldset {
 }
 
 .quote-author {
-  align-self: end;
+  align-self: center;
   padding-top: 12px;
+  padding-right: 32px;
   font-size: var(--text-xs);
   letter-spacing: 3px;
   border-top: 1px solid #2c4d6776;
@@ -331,17 +341,16 @@ fieldset {
 }
 
 .dashboard {
+  margin: 0 auto;
   gap: 60px;
   justify-content: center;
-  align-items: center;
   align-self: flex-start;
-  max-width: 200px;
-  margin-top: 60px;
-
+  margin-top: 100px;
+  max-width: 400px;
 }
 
 .progress-card {
-  gap: 24px;
+  gap: 40px;
   flex: 1;
   padding: 8px;
 }
@@ -429,7 +438,7 @@ fieldset {
   gap: 8px;
   justify-content: flex-start;
   width: 100%;
-  margin-top: auto;
+  margin-top: 60px;
   padding: 8px 4px;
   border: 1px solid #2f313266;
   background-color: #1d272569;
@@ -620,24 +629,24 @@ fieldset {
 }
 
 .mission__container {
-  gap: 24px;
+  align-self: flex-start;
+  gap: 8px;
   flex: 1;
+  max-width: 400px;
   width: 100%;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin: 20px;
   color: #A5B5C1;
 }
 
 .missions__title {
-  font-size: var(--text-md);
-  letter-spacing: 0.2rem;
+  font-size: var(--text-xs);
 }
 
 .status-message {
   position: fixed;
-  bottom: 60px;
-  right: 20px;
-  padding: 15px 25px;
+  bottom: 40px;
+  right: 12px;
+  padding: 8px 16px;
   z-index: 1000;
   transform: translateY(20px);
   transition: all 0.5s ease;
@@ -648,16 +657,19 @@ fieldset {
 .form__container {
   gap: 10px;
   width: 100%;
-  max-width: 900px;
+  max-width: 350px;
 }
 
 .form__header {
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .form__legend {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   font-weight: 700;
   font-size: var(--text-xs);
   letter-spacing: 2px;
@@ -665,9 +677,9 @@ fieldset {
 
 .form-title__input {
   width: 100%;
-  max-width: 700px;
-  padding: 20px 32px;
-  font-size: var(--text-xl);
+  max-width: 400px;
+  padding: 16px 24px;
+  font-size: var(--text-md);
   color: #ffffffac;
   background-color: #0b0b0b7b;
 }
@@ -675,7 +687,7 @@ fieldset {
 .toggle__container {
   gap: 8px;
   width: fit-content;
-  padding: 20px 14px;
+  padding: 16px 12px;
   background: #1a1c1e;
 }
 
@@ -718,21 +730,21 @@ fieldset {
 
 .form__error {
   font-weight: 800;
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   color: #71c1b5ec;
 }
 
 .mission-types__container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: 12px;
   justify-content: start;
   align-items: baseline;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .mission-types__option {
-  padding: 12px 24px;
+  padding: 8px 16px;
   cursor: pointer;
   border: 1px solid #2f313266;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
@@ -767,7 +779,7 @@ fieldset {
 }
 
 .option__title {
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   color: #f3f4f6df;
 }
 
@@ -777,6 +789,7 @@ fieldset {
 }
 
 .form__context {
+  font-size: var(--text-xs);
   line-height: 150%;
   letter-spacing: 2px;
   color: var(--color-tertiary);
@@ -784,30 +797,30 @@ fieldset {
 }
 
 .breakdown__list {
-  gap: 20px;
+  gap: 12px;
 }
 
 .breakdown__list-item {
   gap: 16px;
   justify-content: center;
-  min-height: 84px;
-  padding: 12px 40px;
+  min-height: 80px;
+  padding: 8px 16px;
   border: 1px solid #131515;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.603);
   background-color: #1a1c1e;
 }
 
 .list-item__number {
-  margin-right: 32px;
+  margin-right: 16px;
   font-weight: 700;
-  font-size: var(--text-xl);
+  font-size: var(--text-md);
   color: #3e4b4dd6;
 }
 
 .list-item__input {
   flex: 1;
   width: 100%;
-  font-size: var(--text-lg);
+  font-size: var(--text-sm);
   color: #ffffffac;
 }
 
@@ -816,15 +829,17 @@ fieldset {
 }
 
 .list-item__actions {
+  display: flex;
+  flex-direction: column;
   gap: 8px;
 }
 
 .set-time__button {
-  gap: 8px;
+  gap: 4px;
   justify-content: center;
-  min-width: 130px;
-  padding: 10px;
-  font-size: var(--text-sm);
+  min-width: 80px;
+  padding: 8px;
+  font-size: var(--text-xs);
   border-radius: 40px;
   box-shadow: 0 0 3px 0 #c5dcdb33;
   color: #bdc0c2db;
@@ -836,11 +851,13 @@ fieldset {
 }
 
 .delete__button {
-  max-width: 90px;
-  padding: 10px;
-  background: none;
+  min-width: 80px;
+  padding: 8px;
+  font-size: var(--text-xs);
+  border-radius: 40px;
   box-shadow: 0 0 3px 0 #c5dcdb33;
   color: #a5b5c1c4;
+  background: none;
 }
 
 .delete__button:hover {
@@ -859,10 +876,11 @@ fieldset {
 }
 
 .submit__button {
-  gap: 12px;
+  gap: 8px;
   max-width: max-content;
   margin: 0 auto;
-  padding: 20px 40px;
+  margin-bottom: 16px;
+  padding: 12px 24px;
   font-weight: 600;
   background: linear-gradient(90deg, var(--color-tertiary) 0, var(--color-secondary) 90%);
   color: #232626;
@@ -870,29 +888,29 @@ fieldset {
 
 .calibration__container {
   position: relative;
-  gap: 60px;
+  gap: 20px;
   justify-content: center;
   flex: 1;
   width: 100%;
-  padding: 40px;
+  padding: 12px;
   border-radius: 16px;
   background: radial-gradient(circle at center, #1a2a28 0%, #0d1413 100%);
   user-select: none;
 }
 
 .column__time {
-  min-width: 80px;
+  min-width: 20px;
 }
 
 .column__label {
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   font-size: var(--text-xs);
   letter-spacing: 2px;
   color: #6b8783;
 }
 
 .calibration__button {
-  font-size: var(--text-xl);
+  font-size: var(--text-md);
   cursor: pointer;
   transition: color 0.3s ease;
   color: #3a4b49;
@@ -903,26 +921,26 @@ fieldset {
 }
 
 .current__value {
-  font-size: var(--text-2xl);
+  font-size: var(--text-md);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   color: #2a3b39;
 }
 
 .current__value.active {
   font-weight: 700;
-  font-size: var(--text-6xl);
+  font-size: var(--text-3xl);
   text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
   color: #c9f5f0;
 }
 
 .time-separator {
-  margin-top: 10px;
-  font-size: var(--text-4xl);
+  margin-top: 4px;
+  font-size: var(--text-2xl);
   color: #2a3b39;
 }
 
 .time-picker__button {
-  padding: 12px 48px;
+  padding: 8px 32px;
   border: 1px solid #b6babc32;
   border-radius: 30px;
   box-shadow:
@@ -943,7 +961,7 @@ fieldset {
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-  padding: 20px 60px;
+  padding: 12px 24px;
   box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6);
   color: #ffffff;
   background-color: #b6babc32;
@@ -970,16 +988,18 @@ fieldset {
 }
 
 .strategy__container {
-  gap: 30px;
-  max-width: 1100px;
-  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+  margin: 30px;
 }
 
 .strategy-card {
   position: relative;
-  gap: 24px;
+  gap: 16px;
   flex: 1;
-  padding: 30px;
+  padding: 20px;
   cursor: pointer;
   transform: scale(0.9);
   opacity: 0.7;
@@ -994,12 +1014,12 @@ fieldset {
   z-index: 10;
   box-shadow: 0 0 30px rgba(130, 127, 127, 0.308);
   border-color: var(--color-tertiary);
-  color: #e4e9ed;
+  color: #e4e9eddc;
 }
 
 .card__icon {
   padding: 10px;
-  border-radius: 50px;
+  border-radius: 50%;
   border: 1px solid #717c8457;
 }
 
@@ -1012,7 +1032,7 @@ fieldset {
 }
 
 .card__text {
-  font-size: var(--text-md);
+  font-size: var(--text-xs);
   line-height: 150%;
 }
 
@@ -1038,7 +1058,6 @@ fieldset {
 }
 
 .status__dot {
-
   width: 12px;
   height: 12px;
   transition: all 0.3s ease;
@@ -1146,51 +1165,9 @@ fieldset {
     font-size: var(--text-md);
   }
 
-  .main-layout {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .nav {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 160px;
-    max-width: 200px;
-    height: 80vh;
-    padding: 24px;
-    border-right: 1px solid #383636c8;
-  }
-
-  .nav__header {
-    display: none;
-  }
-
-  .hamburger {
-    display: none;
-  }
-
-  .nav__logo--mobile {
-    display: none;
-  }
-
-  .nav__logo--desktop {
-    display: block;
-    padding: 8px;
-  }
-
-  .nav__logo--desktop img {
-    width: 100px;
+  .nav__logo--mobile img {
+    width: 80px;
     height: auto;
-  }
-
-  .nav__container {
-    gap: 60px;
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    background: transparent;
   }
 
   .nav__list {
@@ -1203,24 +1180,22 @@ fieldset {
   }
 
   .main__container {
-    justify-content: space-between;
-    gap: 40px;
-    max-width: 800px;
-    margin: 32px 44px;
+    gap: 30px;
+    max-width: 700px;
+    margin: 0 auto
   }
 
   .main__title {
     font-size: var(--text-xl);
+    margin-bottom: 20px;
   }
 
   .workspace {
-    display: flex;
     gap: 16px;
-    max-width: 400px;
+    max-width: 500px;
   }
 
   .mission-input {
-    margin-top: 120px;
     margin-bottom: 40px;
     padding: 4px 4px 4px 12px;
   }
@@ -1266,7 +1241,6 @@ fieldset {
   }
 
   .quote__content {
-    max-width: 400px;
     margin: 16px;
   }
 
@@ -1275,13 +1249,7 @@ fieldset {
   }
 
   .dashboard {
-    display: flex;
-    gap: 60px;
-  }
-
-  .progress-card {
-    gap: 32px;
-    padding: 8px;
+    max-width: 500px;
   }
 
   .progress-circle--lg {
@@ -1337,6 +1305,176 @@ fieldset {
     font-size: var(--text-sm);
   }
 
+  .form__container {
+    max-width: 600px;
+  }
+
+  .form__header {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .form__legend {
+    margin-bottom: 16px;
+  }
+
+  .form-title__input {
+    max-width: 400px;
+    padding: 20px 28px;
+    font-size: var(--text-lg);
+  }
+
+  .form__error {
+    font-size: var(--text-sm);
+  }
+
+  .mission-types__container {
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .mission-types__option {
+    padding: 12px 24px;
+  }
+
+  .option__title {
+    font-size: var(--text-sm);
+  }
+
+  .form__context {
+    font-size: var(--text-sm);
+  }
+
+  .breakdown__list {
+    gap: 16px;
+  }
+
+  .breakdown__list-item {
+    gap: 12px;
+    min-height: 84px;
+    padding: 12px 32px;
+  }
+
+  .list-item__number {
+    margin-right: 24px;
+    font-size: var(--text-lg);
+  }
+
+  .list-item__input {
+    font-size: var(--text-md);
+  }
+
+  .list-item__actions {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .set-time__button {
+    min-width: 100px;
+    padding: 12px;
+    font-size: var(--text-sm);
+  }
+
+  .delete__button {
+    min-width: 100px;
+    padding: 12px;
+    font-size: var(--text-sm);
+  }
+
+  .submit__button {
+    gap: 12px;
+    padding: 16px 32px;
+    margin-bottom: 20px;
+  }
+
+  .calibration__container {
+    gap: 40px;
+    padding: 20px;
+  }
+
+  .column__time {
+    min-width: 40px;
+  }
+
+  .column__label {
+    margin-bottom: 12px;
+  }
+
+  .calibration__button {
+    font-size: var(--text-lg);
+  }
+
+  .current__value {
+    font-size: var(--text-xl);
+  }
+
+  .current__value.active {
+    font-size: var(--text-5xl);
+  }
+
+  .time-separator {
+    margin-top: 12px;
+    font-size: var(--text-3xl);
+  }
+
+  .time-picker__button {
+    padding: 12px 48px;
+  }
+
+  .error-message {
+    padding: 20px 60px;
+  }
+
+  .mission__container {
+    gap: 16px;
+    margin: 32px;
+    max-width: 600px;
+  }
+
+  .missions__title {
+    font-size: var(--text-sm);
+    letter-spacing: 0.2rem;
+  }
+
+
+  .status-message {
+    bottom: 60px;
+    right: 20px;
+    padding: 16px 24px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .strategy__container {
+    display: grid;
+    grid-template-columns: 300px 300px;
+    grid-template-rows: 1fr 1fr;
+    gap: 30px;
+    max-width: 800px;
+  }
+
+  .strategy-card {
+    gap: 20px;
+    padding: 24px;
+  }
+
+  .card__text {
+    font-size: var(--text-sm);
+  }
+
+
   .btn--primary {
     padding: 12px 32px;
     font-size: var(--text-sm);
@@ -1384,7 +1522,7 @@ fieldset {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 200px;
+    gap: 160px;
     max-width: 280px;
     height: 100vh;
     padding: 30px;
@@ -1423,7 +1561,7 @@ fieldset {
   }
 
   .nav__list {
-    gap: 40px;
+    gap: 36px;
   }
 
   .nav__list-item {
@@ -1455,14 +1593,14 @@ fieldset {
   }
 
   .mission-input__field {
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
   }
 
   .mission-input__action {
     gap: 12px;
     padding-right: 20px;
     padding-left: 20px;
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
   }
 
   .empty-state {
@@ -1477,7 +1615,7 @@ fieldset {
 
   .empty-state__title {
     margin-top: 16px;
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
   }
 
   .focus-list__title {
@@ -1500,17 +1638,23 @@ fieldset {
   }
 
   .quote-author {
-    padding-top: 20px;
+    align-self: flex-end;
   }
 
   .dashboard {
     display: flex;
-    gap: 80px;
+    flex-direction: column;
+    gap: 16px;
   }
 
   .progress-card {
     gap: 40px;
     padding: 12px;
+  }
+
+  .progress-circle--lg {
+    width: 200px;
+    height: 200px;
   }
 
   .inner-circle {
@@ -1553,11 +1697,195 @@ fieldset {
   }
 
   .indicator__text {
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
   }
 
+  .form__container {
+    max-width: 900px;
+  }
+
+  .form__header {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .form__legend {
+    margin-bottom: 20px;
+  }
+
+  .form-title__input {
+    max-width: 700px;
+    padding: 20px 32px;
+    font-size: var(--text-xl);
+  }
+
+  .toggle__container {
+    gap: 8px;
+    padding: 20px 14px;
+  }
+
+  .form__error {
+    font-size: var(--text-sm);
+  }
+
+  .mission-types__container {
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .mission-types__option {
+    padding: 12px 24px;
+  }
+
+  .option__title {
+    font-size: var(--text-sm);
+  }
+
+  .form__context {
+    font-size: var(--text-sm);
+  }
+
+  .breakdown__list {
+    gap: 20px;
+  }
+
+  .breakdown__list-item {
+    gap: 16px;
+    min-height: 88px;
+    padding: 12px 40px;
+  }
+
+  .list-item__number {
+    margin-right: 32px;
+    font-size: var(--text-xl);
+  }
+
+  .list-item__input {
+    font-size: var(--text-lg);
+  }
+
+  .list-item__actions {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .set-time__button {
+    min-width: 130px;
+    padding: 12px;
+    font-size: var(--text-sm);
+  }
+
+  .delete__button {
+    min-width: 130px;
+    padding: 12px;
+    font-size: var(--text-sm);
+  }
+
+  .submit__button {
+    gap: 12px;
+    padding: 20px 40px;
+    margin-bottom: 24px;
+  }
+
+  .calibration__container {
+    gap: 60px;
+    padding: 40px;
+  }
+
+  .column__time {
+    min-width: 80px;
+  }
+
+  .column__label {
+    margin-bottom: 16px;
+  }
+
+  .calibration__button {
+    font-size: var(--text-xl);
+  }
+
+  .current__value {
+    font-size: var(--text-2xl);
+  }
+
+  .current__value.active {
+    font-size: var(--text-6xl);
+  }
+
+  .time-separator {
+    margin-top: 12px;
+    font-size: var(--text-4xl);
+  }
+
+  .time-picker__button {
+    padding: 12px 48px;
+  }
+
+  .error-message {
+    padding: 20px 60px;
+  }
+
+  .mission__container {
+    gap: 24px;
+    margin: 40px;
+    max-width: 900px;
+  }
+
+  .missions__title {
+    font-size: var(--text-md);
+    letter-spacing: 0.2rem;
+  }
+
+  .status-message {
+    bottom: 60px;
+    right: 20px;
+    padding: 16px 24px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .strategy__container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1100px;
+  }
+
+  .strategy-card {
+    gap: 24px;
+    padding: 30px;
+  }
+
+  .card__text {
+    font-size: var(--text-md);
+    line-height: 150%;
+  }
+
+
   .btn--primary {
-    padding: 16px 40px;
+    padding: 16px 36px;
     font-size: var(--text-sm);
   }
 
